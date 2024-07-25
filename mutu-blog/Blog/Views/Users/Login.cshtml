@@ -1,0 +1,24 @@
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+    ViewData["Title"] = "Page Title";
+}
+
+
+<div class="mb-2">
+    <label asp-for="Email" class="form-label"></label><br>
+    <input asp-for="Email" class="form-control">
+    <span asp-validation-for="Email"></span>
+</div>
+<div class="mb-2">
+    <label asp-for="Password">Password</label>
+    <input asp-for="Password" class="form-control" required>
+</div>
+
+<div class="col-5">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+</div>
+<div>
+    <a asp-area="" asp-controller="Users" asp-action="Register">Hesabınız yok mu? Hemen Kaydolun!</a>
+</div>
+                

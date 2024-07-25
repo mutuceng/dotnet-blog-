@@ -1,0 +1,234 @@
+
+@font-face {
+    font-family: navbarFont;
+    src: url(~/fonts/dejavu-serif.book.tff);
+  }
+  
+@font-face {
+    font-family: navbarFontBold;
+    src: url(~/fonts/dejavu-serif.bold.tff);
+  
+  }
+
+:root {
+    --krem: #E6DAD1;
+    --gri: #9F9998;
+    --cardColor: #6D656C;
+    --tagColor: #81C279;
+  }
+  
+
+.nav-container {
+    position: fixed;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: var(--krem);
+    font-family: navbarFontBold;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.75);
+    z-index: 99;
+}
+
+.nav-container a.logo {
+    text-decoration: none;
+    color: black;
+    font-size: 1.8em;
+    font-family: navbarFontBold;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+
+.nav-container ul{
+    position: relative;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-container ul li
+{
+    text-decoration: none;
+    font-size: 1em;
+    color: black;
+}
+
+.nav-container ul li a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-family: navbarFontBold;
+    font-weight: 900;
+    letter-spacing: 0.05rem;
+}
+
+.nav-container ul li a.nav-link::before
+{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+.nav-container ul li a.nav-link:hover{
+    color: var(--gri);
+}
+
+
+.nav-container ul li a.nav-link:hover::before
+{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.categories ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+
+.categories ul li a:hover, .categories ul li.dropdown ul.dropdown-content li a:hover {
+    color: var(--cardColor);
+}
+
+.categories ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.search-container
+{
+    position: relative;
+    margin-right: 18px;
+}
+
+.search-container input {
+    width: 80px;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.2);
+}
+.search-container input:focus
+{
+    width: 180px;
+}
+.search-button
+{
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    background-color: var(--green3);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.search-container i {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    color: black;
+}
+.searchButton
+{
+    border-radius: 0 5px 5px 0;
+}
+
+.categories{
+    display: block;
+    padding: auto;
+    justify-content: space-between;
+    margin-top: 60px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--gri);
+}
+
+.categories ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: auto;
+}
+
+.categories ul li {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    margin-top: 14px;
+}
+
+.categories ul li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-family: navbarFontBold;
+    font-size: 1rem;
+}
+
+ul .dropdown-content,  ul .sec-dropdown-content 
+{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 5px 0 0 5px;
+}
+
+ul .dropdown-content li , ul .sec-dropdown-content li{
+    display: block;
+}
+
+ul .dropdown-content li a ,ul .sec-dropdown-content li a{
+    color: var(--gri);
+    text-decoration: none;
+    display: block;
+    text-align:start;
+    padding-right: 12px;
+}
+
+ul .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+ul .sec-dropdown:hover .sec-dropdown-content {
+    display: block;
+    left: 100%;
+    top: 0;
+}
+.profil-icon
+{
+    height: 50px;
+    align-content: center;
+}
+
+.profil-icon a {
+    text-decoration: none;
+    color: black;
+}
+
+.profil-icon a i 
+{
+    font-size: 1.6em; 
+}

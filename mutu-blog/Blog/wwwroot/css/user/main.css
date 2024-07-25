@@ -1,0 +1,76 @@
+
+@font-face {
+    font-family: navbarFont;
+    src: url(~/fonts/dejavu-serif.book.tff);
+  }
+  
+@font-face {
+    font-family: navbarFontBold;
+    src: url(~/fonts/dejavu-serif.bold.tff);
+  
+  }
+
+
+.header-container
+{
+    background-color: #9F9998;
+    height: 45px;
+    padding-left: 1.2rem;
+}
+
+
+.header-container a.logo
+{
+    text-decoration: none;
+    color: black;
+    font-size: 1.8em;
+    font-family: navbarFontBold;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+.container-fluid
+{
+    align-items: center;
+    height: calc(100vh - 45px);
+}
+
+.login-container, .head-login
+{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.login-container
+{
+    border: solid 2px black;
+}
+
+.img-container img
+{
+    height: calc(100vh - 45px);
+    width: 100%;
+}
+
+
+@media (max-width: 991.98px) {
+    .login-container {
+        height: calc(100vh - 45px);
+        width: 100vh;
+    }
+}
+
+.login-container img 
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 1rem;
+}
+
+.form-container
+{
+    background-color: #F8BB05;
+}

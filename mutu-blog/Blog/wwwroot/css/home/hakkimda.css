@@ -1,0 +1,30 @@
+.writing
+{
+    padding: 2rem 3.2rem 2rem 3.2rem;
+    margin: 3rem 0 3rem 0 ;
+    font-size: 14px;
+    border-radius: 5%;
+    border-color: black;
+    height: 16rem;
+    border: solid 2px;
+    background: rgb(105,104,96);
+    background: linear-gradient(90deg, rgba(105,104,96,0.9920343137254902) 0%, rgba(223,208,122,1) 51%, rgba(81,194,203,1) 100%);
+}
+
+.hakkimda-container {
+    display: flex;
+    height: 20rem;
+    
+}
+
+.hakkimda-container .image img{
+    height: 20rem;
+    padding: 0;
+    border-radius: 5%;
+    box-shadow: 10px 10px 16px 10px rgba(0, 0, 0, 0);
+}
+
+.hakkimda {
+    padding: 4rem;
+    background-color: #E7DFD8;
+}

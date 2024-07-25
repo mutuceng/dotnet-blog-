@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+        <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">Mutu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Bloglar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Kategoriler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Hakkimda">Hakkımda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">İletişim</a>
+                </li>
+            </ul>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Ara...">
+            <i class="bi bi-search"></i>
+        </div>
+        <div class="profil-icon">
+            <a asp-area="" asp-controller="Users" asp-action="Login"><i class="bi bi-person-circle"></i></a>
+        </div>
+    </div>
+</nav>
