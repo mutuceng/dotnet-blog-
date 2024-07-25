@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Data.Concrete.EfCore
 {
-    public class IdentityContext:DbContext
+    public class AppUser: IdentityUser
     {
         
     }

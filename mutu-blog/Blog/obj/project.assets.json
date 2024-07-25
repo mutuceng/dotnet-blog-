@@ -2714,11 +2714,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Umutl\\Desktop\\mutu-blog\\Blog\\Blog.csproj",
+      "projectUniqueName": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\Blog.csproj",
       "projectName": "Blog",
-      "projectPath": "C:\\Users\\Umutl\\Desktop\\mutu-blog\\Blog\\Blog.csproj",
+      "projectPath": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\Blog.csproj",
       "packagesPath": "C:\\Users\\Umutl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Umutl\\Desktop\\mutu-blog\\Blog\\obj\\",
+      "outputPath": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
