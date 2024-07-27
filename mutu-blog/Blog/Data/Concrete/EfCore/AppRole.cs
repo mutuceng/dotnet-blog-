@@ -8,8 +8,8 @@ namespace Blog.Data.Concrete.EfCore
 {
     public class AppRole : IdentityRole
     {
-        public AppRole(string roleName) : base(roleName)
-        {
-        }
+        public AppRole() : base() { }
+
+        public AppRole(string roleName) : base(roleName) { }
     }
 }

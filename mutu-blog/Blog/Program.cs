@@ -9,8 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
-
 builder.Services.AddDbContext<IdentityContext>(
     options => options.UseSqlite(builder.Configuration["ConnectionStrings:SQLite_Conntection"]));
 
@@ -27,6 +25,26 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     
 builder.Services.AddScoped<RoleService>();
 
+var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
+    var roles = new[] {"Admin","Blogger","User"};
+
+    foreach(var role in roles)
+    {
+        var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
+        if(result.Succeeded)
+        {
+            Console.WriteLine($"Role {role} created successfully");
+        }
+        else
+        {
+            Console.WriteLine($"Role {role} creation failed");
+        }
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
