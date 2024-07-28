@@ -7,7 +7,7 @@ namespace Blog.Entity
 {
     public class Comment
     {
-        public int CommentId {get; set;}
+        public int Id {get; set;}
         public string Text { get; set; } = null!;
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public int LikeNumber { get; set; } = 0;
@@ -15,6 +15,6 @@ namespace Blog.Entity
         public Post Post {get; set;} = null!;
         public int PostId { get; set; }
         public User User {get; set;} = null!;
-        public int UserId { get; set; } 
+        public string UserId { get; set; } = null!;
     }
 }

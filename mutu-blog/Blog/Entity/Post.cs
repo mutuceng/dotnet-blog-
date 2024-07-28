@@ -12,7 +12,7 @@ namespace Blog.Entity
         public string Content { get; set; } = null!;
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; }
-        public int UserId {get; set;}
+        public string UserId { get; set; } = null!;
         public int PrimaryTagId {get; set;}
         public User User {get; set;} = null!;
         public PrimaryTag PrimaryTag {get; set;} = null!;

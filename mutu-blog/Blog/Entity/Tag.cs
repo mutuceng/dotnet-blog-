@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Blog.Entity
 {
-    public class Tag:BaseTag
+    public class Tag
     {
         public int TagId { get; set; }
-        public ICollection<Post>? Posts { get; set; }
+        public string Name { get; set; } = null!;
+        public ICollection<Post> Posts { get; set; } = new List<Post>();
     }
 }

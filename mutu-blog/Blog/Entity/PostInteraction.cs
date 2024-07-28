@@ -7,7 +7,8 @@ namespace Blog.Entity
 {
     public class PostInteraction
     {
-        public int UserId {get; set;}
+        public int Id { get; set; }
+        public string UserId {get; set;} = null!;
         public int PostId { get; set; }
         public int ViewCount { get; set; } = 0;
         public TimeSpan TimeSpent { get; set; } = TimeSpan.Zero;

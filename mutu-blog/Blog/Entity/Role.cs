@@ -8,7 +8,6 @@ namespace Blog.Entity
 {
     public class Role: IdentityRole
     {
-        
-      public User? User { get; set; } 
+        public ICollection<User> Users { get; set; } = new List<User>();
     }
 }

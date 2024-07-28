@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Blog.Entity
 {
-    public class PrimaryTag:BaseTag
+    public class PrimaryTag:Tag
     {
-        public int PrimaryTagId { get; set; }
-        public Post? Post {get; set;}
+        public ICollection<Post> PrimaryPosts { get; set; } = new List<Post>();
     }
 }
