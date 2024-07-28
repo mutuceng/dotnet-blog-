@@ -10,7 +10,21 @@ namespace Blog.Entity
     {
         public string? FullName {get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public string UserType { get; set; } = "User";
         public string? ProfilePhoto { get; set; }
+        public string RoleName { get; set; } = "User";
+        
+        // Blogger 
+        public string? LinkedInProfile { get; set; }
+        public IFormFile? ResumeFile { get; set; }    
+
+        public ICollection<PostInteraction> PostInteractions { get; set; }= new List<PostInteraction>();
+        public ICollection<Post> Posts { get; set; }= new List<Post>();
+        public ICollection<Comment> Comments { get; set; }= new List<Comment>();
+        public Role Role {get; set;} = null!;
+
+        
+        
     }
+
+        
 }

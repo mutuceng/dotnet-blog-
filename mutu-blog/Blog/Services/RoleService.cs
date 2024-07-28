@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Blog.Data.Concrete.EfCore;
+using Blog.Entity;
 using Microsoft.AspNetCore.Identity;
 
 
@@ -10,9 +10,9 @@ namespace Blog.Services
 {
     public class RoleService
     {
-        private readonly RoleManager<AppRole> _roleManager;
+        private readonly RoleManager<Role> _roleManager;
 
-        public RoleService (RoleManager<AppRole> roleManager)
+        public RoleService (RoleManager<Role> roleManager)
         {
             _roleManager = roleManager;
         }
@@ -27,7 +27,7 @@ namespace Blog.Services
                 });
             }   
 
-            AppRole role = new AppRole(roleName);
+            Role role = new Role{ Name = roleName };
             return await _roleManager.CreateAsync(role);
         }
     }

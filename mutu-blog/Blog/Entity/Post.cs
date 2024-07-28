@@ -14,11 +14,11 @@ namespace Blog.Entity
         public bool IsActive { get; set; }
         public int UserId {get; set;}
         public int PrimaryTagId {get; set;}
-        public int LikeNumber { get; set; } = 0;
-        public int DisslikeNumber { get; set; } = 0;
         public User User {get; set;} = null!;
         public PrimaryTag PrimaryTag {get; set;} = null!;
         public ICollection<Tag> Tags { get; set; } = new List<Tag>();
         public ICollection<Comment> Comments { get; set; }= new List<Comment>();
+        public ICollection<PostInteraction> PostInteractions { get; set; }= new List<PostInteraction>();
+
     }
 }

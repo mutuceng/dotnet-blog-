@@ -1,4 +1,5 @@
 using Blog.Data.Concrete.EfCore;
+using Blog.Entity;
 using Blog.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,18 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<IdentityContext>(
-    options => options.UseSqlite(builder.Configuration["ConnectionStrings:SQLite_Conntection"]));
 
-// builder.Services.AddIdentity<AppUser, AppRole>(options )
-// {
-//     .AddEntityFramworkStores<ApplicationDbContext>()
-//     .AddDefaultTokenProviders()
-//     .AddDefaultUI();
-// }
+builder.Services.AddDbContext<BlogContext>(
+    options => 
+{
+    var config = builder.Configuration;
+    var connectionString = config.GetConnectionString("SQLite_Connection");
+    options.UseSqlite(connectionString);
+});
 
-builder.Services.AddIdentity<AppUser, AppRole>()
-    .AddEntityFrameworkStores<IdentityContext>()
+
+builder.Services.AddIdentity<User, Role>()
+    .AddEntityFrameworkStores<BlogContext>()
     .AddDefaultTokenProviders();
     
 builder.Services.AddScoped<RoleService>();
@@ -45,6 +46,7 @@ using (var scope = app.Services.CreateScope())
         }
     }
 }
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

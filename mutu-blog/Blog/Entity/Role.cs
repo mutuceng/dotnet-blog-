@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Data.Concrete.EfCore
+namespace Blog.Entity
 {
-    public class AppUser: IdentityUser
+    public class Role: IdentityRole
     {
         
+      public User? User { get; set; } 
     }
 }
