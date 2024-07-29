@@ -28,24 +28,24 @@ builder.Services.AddScoped<RoleService>();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
-    var roles = new[] {"Admin","Blogger","User"};
+// using (var scope = app.Services.CreateScope())
+// {
+//     var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
+//     var roles = new[] {"Admin","Blogger","User"};
 
-    foreach(var role in roles)
-    {
-        var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
-        if(result.Succeeded)
-        {
-            Console.WriteLine($"Role {role} created successfully");
-        }
-        else
-        {
-            Console.WriteLine($"Role {role} creation failed");
-        }
-    }
-}
+//     foreach(var role in roles)
+//     {
+//         var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
+//         if(result.Succeeded)
+//         {
+//             Console.WriteLine($"Role {role} created successfully");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Role {role} creation failed");
+//         }
+//     }
+// }
 
 
 // Configure the HTTP request pipeline.
@@ -67,4 +67,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+SeedData.TestUser(app);
 app.Run();

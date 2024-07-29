@@ -42,7 +42,9 @@ namespace Blog.Data.Concrete.EfCore
             builder.Entity<User>()
                 .HasOne(u => u.Role)
                 .WithMany( r => r.Users)
-                .HasForeignKey(u => u.RoleId);
+                .HasForeignKey(u => u.RoleId)
+                .OnDelete(DeleteBehavior.Restrict);    
+;
         
             builder.Entity<Post>()
                 .HasMany(p => p.Comments)
