@@ -68,6 +68,10 @@ namespace Blog.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PostImage")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("PrimaryTagId")
                         .HasColumnType("INTEGER");
 
@@ -437,7 +441,7 @@ namespace Blog.Migrations
                     b.HasOne("Blog.Entity.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Role");

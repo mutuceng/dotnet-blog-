@@ -15,7 +15,6 @@ namespace Blog.Models
         public string Email { get; set; } = null!;
 
         [Required]
-        [StringLength(10, ErrorMessage = "{0} alanı en az {2} karakter uzunluğunda olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Password {get; set;} = null!;

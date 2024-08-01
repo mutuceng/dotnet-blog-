@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Umutl\Belgeler\GitHub\dotnet-blog-\mutu-blog\Blog
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blog/AllBlogs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xBbGxCbG9ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Admin/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Error.cshtml]

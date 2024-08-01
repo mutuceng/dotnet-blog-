@@ -10,6 +10,7 @@ namespace Blog.Entity
         public int PostId { get; set; }
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
+        public string PostImage {get; set;} = null!;
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; }
         public string UserId { get; set; } = null!;
