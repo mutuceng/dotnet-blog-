@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vOA1NXay2BV5ABPRrQ7omG0eXUXBo78NGc50vnSMNs0=",
+  "Hash": "nRTP6tZ/v8ju9xShZ7T5aJRiVCMSqFnxU0BgcX5hhbY=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\drawinsights.gif"
+    },
+    {
+      "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\DSC_6795.jpg",
+      "SourceId": "Blog",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "RelativePath": "images/DSC_6795.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DSC_6795.jpg"
     },
     {
       "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\profile.jpeg",

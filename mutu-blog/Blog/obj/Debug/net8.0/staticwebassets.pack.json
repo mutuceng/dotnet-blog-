@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\fonts\\dejavu-serif.book.ttf"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\DSC_6795.jpg",
+      "PackagePath": "staticwebassets\\images\\DSC_6795.jpg"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\blank-profile-pic.jpg",
       "PackagePath": "staticwebassets\\images\\blank-profile-pic.jpg"
     },

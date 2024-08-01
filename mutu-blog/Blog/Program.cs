@@ -26,26 +26,43 @@ builder.Services.AddIdentity<User, Role>()
     
 builder.Services.AddScoped<RoleService>();
 
+builder.Services.Configure<IdentityOptions>(options => 
+{
+    options.User.AllowedUserNameCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+});
+
 var app = builder.Build();
 
-// using (var scope = app.Services.CreateScope())
-// {
-//     var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
-//     var roles = new[] {"Admin","Blogger","User"};
+using (var scope = app.Services.CreateScope())
+{
+    var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
+    var roles = new[] {"Admin","Blogger","User"};
 
-//     foreach(var role in roles)
-//     {
-//         var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
-//         if(result.Succeeded)
-//         {
-//             Console.WriteLine($"Role {role} created successfully");
-//         }
-//         else
-//         {
-//             Console.WriteLine($"Role {role} creation failed");
-//         }
-//     }
-// }
+    foreach(var role in roles)
+    {
+        var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
+        if(result.Succeeded)
+        {
+            Console.WriteLine($"Role {role} created successfully");
+        }
+        else
+        {
+            Console.WriteLine($"Role {role} creation failed");
+        }
+    }
+}
 
 
 // Configure the HTTP request pipeline.

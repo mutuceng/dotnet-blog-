@@ -1,10 +1,10 @@
-﻿<!-- @model Blog.Entity.Post
+@model IEnumerable<Blog.Entity.Post>
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-@for(i=0; i<9; i++)
+@foreach (var post in Model.Take(9))
 {
-    await Html.PartialAsync("_CarouselCard",Model)
-} -->
+    await Html.PartialAsync("_CarouselCard", post);
+}
