@@ -1,3 +1,4 @@
+using Blog.Data.Abstract;
 using Blog.Data.Concrete.EfCore;
 using Blog.Entity;
 using Blog.Services;
@@ -25,6 +26,11 @@ builder.Services.AddIdentity<User, Role>()
     .AddDefaultTokenProviders();
     
 builder.Services.AddScoped<RoleService>();
+builder.Services.AddScoped<IPostRepository, EfPostRepository>();
+builder.Services.AddScoped<ITagRepository, EfTagRepository>();
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+builder.Services.AddScoped<IUserRepository, EfUserRepository>();
+
 
 builder.Services.Configure<IdentityOptions>(options => 
 {
@@ -45,24 +51,24 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
-    var roles = new[] {"Admin","Blogger","User"};
+// using (var scope = app.Services.CreateScope())
+// {
+//     var roleService = scope.ServiceProvider.GetRequiredService<RoleService>();
+//     var roles = new[] {"Admin","Blogger","User"};
 
-    foreach(var role in roles)
-    {
-        var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
-        if(result.Succeeded)
-        {
-            Console.WriteLine($"Role {role} created successfully");
-        }
-        else
-        {
-            Console.WriteLine($"Role {role} creation failed");
-        }
-    }
-}
+//     foreach(var role in roles)
+//     {
+//         var result = roleService.CreateRoleAsync(role).GetAwaiter().GetResult();
+//         if(result.Succeeded)
+//         {
+//             Console.WriteLine($"Role {role} created successfully");
+//         }
+//         else
+//         {
+//             Console.WriteLine($"Role {role} creation failed");
+//         }
+//     }
+// }
 
 
 // Configure the HTTP request pipeline.

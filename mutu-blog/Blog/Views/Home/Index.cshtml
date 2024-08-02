@@ -4,7 +4,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-@foreach (var post in Model.Take(9))
-{
-    await Html.PartialAsync("_CarouselCard", post);
-}
+
+<div class="container mt-4">
+  <h2>Öne Çıkanlar</h2>
+  <vc:popular-posts></vc:popular-posts>
+</div>
