@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.ViewComponents
 {
-    public class PopularPosts: ViewComponent
+    public class PopularPostsViewComponent:ViewComponent
     {
         private IPostRepository _postRepository;
-        public PopularPosts(IPostRepository postRepository)
+        public PopularPostsViewComponent(IPostRepository postRepository)
         {
             _postRepository = postRepository;
         }
@@ -21,18 +21,23 @@ namespace Blog.ViewComponents
             try
             {
                 var posts = await _postRepository
-                                    .Posts
-                                    .Select(post => new 
-                                    {
-                                        Post = post,
-                                        PopularityScore = post.PostInteractions.Sum(pi => pi.ViewCount + pi.TimeSpent.TotalSeconds/1000)
-                                    })
-                                    .OrderByDescending(x => x.PopularityScore)
-                                    .Take(6)
-                                    .Select(x => x.Post)
-                                    .ToListAsync();
+                            .Posts
+                            .Include(p => p.PostInteractions) // İlişkili verileri dahil ediyoruz
+                            .ToListAsync(); // Veritabanı sorgusunu tamamlıyoruz
 
-                if (!posts.Any())
+        // Sunucu tarafında işlem yapıyoruz
+                var popularPosts = posts
+                            .Select(post => new
+                            {
+                                Post = post,
+                                PopularityScore = post.PostInteractions.Sum(pi => pi.ViewCount + pi.TimeSpent.TotalSeconds / 1000)
+                            })
+                            .OrderByDescending(x => x.PopularityScore)
+                            .Take(6)
+                            .Select(x => x.Post)
+                            .ToList();
+
+                if (!popularPosts.Any())
                 {
                     return View("Error", "No popular posts found.");
                 }

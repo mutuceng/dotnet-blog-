@@ -1,11 +1,15 @@
-@model IEnumerable<Blog.Entity.Post>
+@model PostViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
+<head>
+  <link rel="stylesheet" href="~wwwroot/css/home/carousel.css">
+</head>
 
 
 <div class="container mt-4">
   <h2>Öne Çıkanlar</h2>
-  <vc:popular-posts></vc:popular-posts>
+  @await Component.InvokeAsync("PopularPosts")
+  
 </div>

@@ -99,7 +99,7 @@ namespace Blog.Data.Concrete.EfCore
                             Content = "Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum",
                             PostId = 6001,
                             IsActive = true,
-                            PostImage = "~/images/DSC_6795.jpg",
+                            PostImage = "~/wwwroot/images/DSC_6795.jpg",
                             CreatedDate = DateTime.Now.AddDays(-20),
                             Tags = context.Tags.Take(2).ToList(),
                             PrimaryTagId = 4726,

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Blog.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\home\\carousel.css",
+      "PackagePath": "staticwebassets\\css\\home\\carousel.css"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\home\\hakkimda.css",
       "PackagePath": "staticwebassets\\css\\home\\hakkimda.css"
     },
@@ -47,6 +51,10 @@
     {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\profile.jpeg",
       "PackagePath": "staticwebassets\\images\\profile.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\js\\carousel.js",
+      "PackagePath": "staticwebassets\\js\\carousel.js"
     },
     {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\js\\site.js",
