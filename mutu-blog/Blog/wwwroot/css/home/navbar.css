@@ -24,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 60px;
+    height: 65px;
     top: 0;
     left: 0;
     background-color: var(--krem);
@@ -36,7 +36,7 @@
 .nav-container a.logo {
     text-decoration: none;
     color: black;
-    font-size: 1.8em;
+    font-size: 2.4em;
     font-family: navbarFontBold;
     font-weight: 800;
     text-transform: uppercase;
@@ -53,7 +53,7 @@
 .nav-container ul li
 {
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.6rem;
     color: black;
 }
 
@@ -117,8 +117,8 @@
 }
 
 .search-container input {
-    width: 80px;
-    font-size: 14px;
+    width: 120px;
+    font-size: 1.4rem;
     padding: 4px 8px;
     border-radius: 20px;
     border: none;
@@ -156,9 +156,9 @@
     display: block;
     padding: auto;
     justify-content: space-between;
-    margin-top: 60px;
+    margin-top: 65px;
     width: 100%;
-    height: 50px;
+    height: 60px;
     background-color: var(--gri);
 }
 
@@ -174,7 +174,7 @@
     display: inline-block;
     position: relative;
     margin: auto;
-    margin-top: 14px;
+    margin-top: 1.2rem;
 }
 
 .categories ul li a {
@@ -182,7 +182,7 @@
     text-decoration: none;
     color: black;
     font-family: navbarFontBold;
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
 
 ul .dropdown-content,  ul .sec-dropdown-content 
@@ -219,7 +219,7 @@ ul .sec-dropdown:hover .sec-dropdown-content {
 }
 .profil-icon
 {
-    height: 50px;
+    height: 60px;
     align-content: center;
 }
 
@@ -230,5 +230,5 @@ ul .sec-dropdown:hover .sec-dropdown-content {
 
 .profil-icon a i 
 {
-    font-size: 1.6em; 
+    font-size: 2.4em; 
 }

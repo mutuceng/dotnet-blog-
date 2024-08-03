@@ -11,20 +11,72 @@
 
 .carousel-inner{
     padding: 1em;
+    height: 800px;
 }
 .card{
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-sizing: border-box;
     margin: 0 .5em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    background-color: #6D656C;
 }
+.card-body
+{
+    color: #DFDCDA;
+    height: 250px;
+}
+.card-title
+{
+    font-weight: bolder;
+}
+
+.short-text {
+  display: block;
+}
+
+.long-text {
+  display: none;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+}
+
+
+.card:hover .short-text {
+  display: none;
+}
+
+.card:hover .long-text {
+  display: block;
+}
+
 .carousel-control-prev, .carousel-control-next{
-    background-color: #e1e1e1;
+    background-color: black;
     width: 6vh;
     height: 6vh;
     border-radius: 50%;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
 }
+.carousel-control-prev {
+  left: -4rem;
+}
+
+.carousel-control-next {
+  right: -4rem;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(143, 136, 100, 0.8); /* Make it more visible on hover */
+}
+
 
 .card .img-wrapper {
     max-width: 100%;
@@ -36,4 +88,16 @@
   
   img{
     max-height: 100%;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px
   }
+
+  .btn
+{
+    background-color: #81C279;
+    font-family: dejavuSerif;
+    border: none;
+    color:black;
+    font-weight: 550;
+    border-radius: 30px;
+}
