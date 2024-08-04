@@ -53,7 +53,10 @@ namespace Blog.Data.Concrete.EfCore
                         }
                     }
                 }
-                context.Users.AddRange(
+                
+                if(!context.Users.Any())
+                {
+                    context.Users.AddRange(
                         new User { 
                             UserName = "mutu", 
                             FullName = "Umut Tanrıverdi", 
@@ -65,7 +68,8 @@ namespace Blog.Data.Concrete.EfCore
                             Email = "umut.tanriverdi5012@gmail.com", 
                             ProfilePhoto = "~/images/blank-profile-pic.jpg", RoleId = "85512be7-2d8e-46aa-ae95-34a333e836de"}
                     );
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
 
                 if(!context.Tags.Any())
                 {

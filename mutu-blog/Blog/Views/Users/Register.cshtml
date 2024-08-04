@@ -1,29 +1,27 @@
-@model RegisterViewModel
+@model Blog.Models.RegisterViewModel
 @{
-    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
     ViewData["Title"] = "Page Title";
 }
 
-<div class="mb-2">
-    <label asp-for="UserName" class="form-label"></label><br>
-    <input asp-for="UserName" class="form-control"> 
-    <span asp-validation-for="UserName"></span>
-</div>
-<div class="mb-2">
-    <label asp-for="Email" class="form-label"></label><br>
-    <input asp-for="Email" class="form-control">
-    <span asp-validation-for="Email"></span>
-</div>
-<div class="mb-2">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="Password" required>
-</div>
-<div class="input-group mb-2">
-    <input type="file" name="ImageFile" id="ProfilePhoto" class="d-block form-control">
-    <br>
-    <span asp-validation-for="ProfilePhoto"></span>
-</div>
 
-<div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-</div> 
+<form asp-action="Register" method="post">
+    <h1>Kayıt Ol</h1>
+    <div class="image-wrapper mt-4">
+        <img src="~/images/blank-profile-pic.jpg" alt="">
+      </div>
+    <input type="text" asp-for="UserName" placeholder="UserName" required />
+    <input type="email" asp-for="Email" placeholder="Email" required />
+    <input type="password" asp-for="Password" placeholder="Password" required />
+    <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" required />
+    <button type="submit" class="mb-3 mt-2">Kayıt Ol</button>
+    <p>Zaten hesabın var mı? Giriş yap.</p>
+    <button id="Login">Giriş Yap</button>
+</form>
+
+<script>
+    document.getElementById('Login').addEventListener('click', function() {
+        console.log('Register button clicked'); // Butona tıklamanın algılanıp algılanmadığını kontrol et
+        window.location.href = 'Login';
+    });
+</script>

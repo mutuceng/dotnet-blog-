@@ -1,0 +1,148 @@
+@font-face {
+    font-family: navbarFont;
+    src: url(~/fonts/dejavu-serif.book.tff);
+  }
+  
+@font-face {
+    font-family: navbarFontBold;
+    src: url(~/fonts/dejavu-serif.bold.tff);
+  
+  }
+
+
+.header-container
+{
+    background-color: #9F9998;
+    height: 45px;
+    padding-left: 1.2rem;
+}
+
+
+.header-container a.logo
+{
+    text-decoration: none;
+    color: black;
+    font-size: 1.8em;
+    font-family: navbarFontBold;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+
+
+body {
+    background: rgb(159,153,152);
+    background: linear-gradient(171deg, rgba(159,153,152,1) 24%, rgba(230,218,209,1) 53%, rgba(109,101,108,1) 90%);
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+}
+
+section 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+    padding-top: 5rem;
+}
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+}
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #A6BBCF;
+	background-color: #A6BBCF;
+	color: #FFFFFF;
+	font-size: 1rem;
+	font-weight: bolder;
+	padding: 10px 40px; 
+	letter-spacing: 1px;
+}
+
+#Register , #Login
+{
+    background-color: rgb(238, 175, 92);
+}
+
+
+
+.image-wrapper
+{
+    height: 80px;
+    display: flex;
+    
+}
+
+img
+{
+    height: 100%;
+    border-radius: 25px;
+}
+
+
+button:focus {
+	outline: none;
+}
+
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 60%;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+    margin-left: 20px;
+    margin-right: 20px;
+	max-width: 80%;
+	min-height: 480px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+
+
+
+

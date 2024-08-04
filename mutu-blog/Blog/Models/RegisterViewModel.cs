@@ -32,5 +32,12 @@ namespace Blog.Models
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Password {get; set;} = null!;
+
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Şifreyi Onayla")]
+        [Compare("Password", ErrorMessage = "Şifre ve onay şifresi eşleşmiyor.")]
+        public string ConfirmPassword { get; set; } = null!;
     }
 }

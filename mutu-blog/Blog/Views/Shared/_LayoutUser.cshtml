@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/user/login-register.css"  asp-append-version="true">
+</head>
+<body>
+    <div class="header-container">
+      <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">MUTU</a>
+    </div>
+    <section>
+        <div class="container" id="container">
+
+            @RenderBody()
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="~/js/login-register.js" asp-append-version="true"></script>
+<script>
+          $(document).ready(function(){
+            $('#register').click(function(){
+                window.location.href = 'Users/User/Register';
+            });
+        });
+</script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

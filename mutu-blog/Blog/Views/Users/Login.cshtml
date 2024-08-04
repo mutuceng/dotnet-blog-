@@ -1,24 +1,25 @@
-@model LoginViewModel
+@model Blog.Models.LoginViewModel
 @{
-    Layout = "~/Views/Shared/_LayoutLoginRegister.cshtml";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
     ViewData["Title"] = "Page Title";
 }
 
+<form asp-action="Login" method="post">
+    <h1>Giriş Yap</h1>
+    <div class="image-wrapper mt-4">
+        <img src="~/images/blank-profile-pic.jpg" alt="">
+      </div>
+    <input type="email" asp-for="Email" placeholder="Email" required />
+    <input type="password" asp-for="Password" placeholder="Password" required />
+    <a href="#">Forgot your password?</a>
+    <button type="submit">Giriş Yap</button>
+    <p class="mt-2">Hesabın yok mu? Kayıt ol.</p>
+    <button type="button"id="Register">Kayıt ol</button> 
+</form>     
 
-<div class="mb-2">
-    <label asp-for="Email" class="form-label"></label><br>
-    <input asp-for="Email" class="form-control">
-    <span asp-validation-for="Email"></span>
-</div>
-<div class="mb-2">
-    <label asp-for="Password">Password</label>
-    <input asp-for="Password" class="form-control" required>
-</div>
-
-<div class="col-5">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-</div>
-<div>
-    <a asp-area="" asp-controller="Users" asp-action="Register">Hesabınız yok mu? Hemen Kaydolun!</a>
-</div>
-                
+<script>
+    document.getElementById('Register').addEventListener('click', function() {
+        console.log('Register button clicked'); // Butona tıklamanın algılanıp algılanmadığını kontrol et
+        window.location.href = 'Register';
+    });
+</script>

@@ -13,7 +13,7 @@
 
 .header-container
 {
-    background-color: #9F9998;
+    background-color: #fab8ac;
     height: 45px;
     padding-left: 1.2rem;
 }
@@ -29,48 +29,5 @@
     text-transform: uppercase;
     letter-spacing: 0.06rem;
 }
-.container-fluid
-{
-    align-items: center;
-    height: calc(100vh - 45px);
-}
-
-.login-container, .head-login
-{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
-.login-container
-{
-    border: solid 2px black;
-}
-
-.img-container img
-{
-    height: calc(100vh - 45px);
-    width: 100%;
-}
 
 
-@media (max-width: 991.98px) {
-    .login-container {
-        height: calc(100vh - 45px);
-        width: 100vh;
-    }
-}
-
-.login-container img 
-{
-    width: 80px;
-    height: 80px;
-    border-radius: 1rem;
-}
-
-.form-container
-{
-    background-color: #F8BB05;
-}
