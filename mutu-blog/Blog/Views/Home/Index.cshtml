@@ -1,15 +1,28 @@
 @model PostViewModel
-
 @{
     ViewData["Title"] = "Home Page";
 }
 <head>
-  <link rel="stylesheet" href="~wwwroot/css/home/carousel.css">
+  <link rel="stylesheet" href="~/css/home/carousel.css">
+  <link rel="stylesheet" href="~/css/home/post-user.css">
 </head>
 
 
-<div class="container mt-2">
+<div class="popular-post container mt-2">
   <h2>Öne Çıkanlar</h2>
   @await Component.InvokeAsync("PopularPosts")
   
+</div>
+
+<div class="post-user container d-flex">
+      <div class="col-8">
+        <h2>Son Eklenenler</h2>
+        @await Component.InvokeAsync("NewestPosts")
+  
+      </div>
+      <div class="col-4 ">
+        <h2>Yazarlar</h2>
+        @await Component.InvokeAsync("BestBloggers")
+      </div>
+
 </div>

@@ -11,9 +11,9 @@
 
 .carousel-inner{
     padding: 1em;
-    height: 800px;
+    height: 600px;
 }
-.card{
+.carousel-card{
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     box-sizing: border-box;
@@ -24,6 +24,7 @@
     border-bottom-right-radius: 1.5rem;
     background-color: #6D656C;
 }
+
 .card-body
 {
     color: #DFDCDA;
@@ -42,7 +43,7 @@
   display: none;
 }
 
-.card:hover {
+.carousel-card:hover {
   transform: scale(1.05); /* Slightly enlarge the card on hover */
   box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
 }

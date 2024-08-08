@@ -26,15 +26,14 @@
         </main>
     </div>
     <div class="hakkimda">
-        @RenderSection("Hakkımda", required:false)
+        @RenderSection("Hakkimda", required:false)
     </div>
  
-    <footer class="border-top footer text-muted">
-        @RenderSection("Footer", required:false)
-        <div class="container">
-            &copy; 2024 - Blog - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
+    <div class="footer container">
+        @await Html.PartialAsync("~/Views/Shared/Footer/_Footer.cshtml")
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

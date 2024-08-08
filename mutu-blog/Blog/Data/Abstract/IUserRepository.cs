@@ -14,6 +14,6 @@ namespace Blog.Data.Abstract
         void DeleteUser(User User);
         void EditUserRole(User User);
 
-
+        
     }
 }
