@@ -25,6 +25,31 @@ namespace Blog.Data.Concrete.EfCore
                 {
                     context.Database.Migrate();
                 }
+
+                if(!context.Users.Any())
+                {
+                    context.Users.AddRange(
+                        new User { 
+                            UserName = "mutu", 
+                            FullName = "Umut Tanrıverdi", 
+                            Email = "umut.tanriverdiceng@gmail.com", 
+                            LinkedInProfile = "https://www.linkedin.com/in/umut-tanrıverdi-2035b8259/",
+                            ProfilePhoto = "~/images/profile.jpeg", RoleId = "5edb0895-588d-4064-8307-758bdd5fb8f5"},
+
+                        new User { 
+                            UserName = "nurumi", 
+                            FullName = "Nurullah Hilcan", 
+                            Email = "nurullah.hilcan@gmail.com", 
+                            LinkedInProfile = "https://www.linkedin.com/in/nurullah-hilcan/",
+                            ProfilePhoto = "~/images/profile.jpeg", RoleId = "5edb0895-588d-4064-8307-758bdd5fb8f5"},
+                        
+                        new User { 
+                            UserName = "umut",  
+                            Email = "umut.tanriverdi5012@gmail.com", 
+                            ProfilePhoto = "~/images/blank-profile-pic.jpg", RoleId = "85512be7-2d8e-46aa-ae95-34a333e836de"}
+                    );
+                    context.SaveChanges();
+                }
                 
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
                 // var roleManager = scope.ServiceProvider.GetRequiredService<Role>();
@@ -54,22 +79,7 @@ namespace Blog.Data.Concrete.EfCore
                     }
                 }
                 
-                if(!context.Users.Any())
-                {
-                    context.Users.AddRange(
-                        new User { 
-                            UserName = "mutu", 
-                            FullName = "Umut Tanrıverdi", 
-                            Email = "umut.tanriverdiceng@gmail.com", 
-                            LinkedInProfile = "https://www.linkedin.com/in/umut-tanrıverdi-2035b8259/",
-                            ProfilePhoto = "~/images/profile.jpeg", RoleId = "5edb0895-588d-4064-8307-758bdd5fb8f5"},
-                        new User { 
-                            UserName = "umut",  
-                            Email = "umut.tanriverdi5012@gmail.com", 
-                            ProfilePhoto = "~/images/blank-profile-pic.jpg", RoleId = "85512be7-2d8e-46aa-ae95-34a333e836de"}
-                    );
-                    context.SaveChanges();
-                }
+
 
                 if(!context.Tags.Any())
                 {
@@ -96,18 +106,18 @@ namespace Blog.Data.Concrete.EfCore
                             Tags = context.Tags.Take(3).ToList(),
                             PrimaryTagId = 4726,
                             PostImage = "~/images/DSC_6795.jpg",
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24",
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3",
                         },
                         new Post {
                             Title = "Php",
                             Content = "Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum",
                             PostId = 6001,
                             IsActive = true,
-                            PostImage = "~/wwwroot/images/DSC_6795.jpg",
+                            PostImage = "~/images/DSC_6795.jpg",
                             CreatedDate = DateTime.Now.AddDays(-20),
                             Tags = context.Tags.Take(2).ToList(),
                             PrimaryTagId = 4726,
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
                         },
                         new Post {
                             Title = "Django",
@@ -118,7 +128,7 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-30),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4726,
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
                         }
                         ,
                         new Post {
@@ -130,7 +140,7 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-40),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4727,
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
                         }
                         ,
                         new Post {
@@ -142,7 +152,7 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-50),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4727,
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
                         }
                         ,
                         new Post {
@@ -154,7 +164,7 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-60),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4725,
-                            UserId = "e38415bf-ef4c-4a65-b104-5ce3bff8dc24"
+                            UserId = "ba14fdb4-6f26-482d-9671-335ae8084d57"
                         }
                     );
                     context.SaveChanges();

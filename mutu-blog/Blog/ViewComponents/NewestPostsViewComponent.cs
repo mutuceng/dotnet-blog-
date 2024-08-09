@@ -22,7 +22,7 @@ namespace Blog.ViewComponents
             return View(await _postRepository
                                 .Posts
                                 .OrderByDescending(p => p.CreatedDate)
-                                .Take(5)
+                                .Take(3)
                                 .ToListAsync());
         }
     }

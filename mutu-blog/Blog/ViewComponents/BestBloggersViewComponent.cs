@@ -22,19 +22,28 @@ namespace Blog.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var bestBloggers = await _postRepository
+            var postGroups = await _postRepository
                                 .Posts
                                 .GroupBy(p => p.UserId)
-                                .Select(async g => new BestBloggerViewModel
-                                {
-                                    UserId = g.Key,
-                                    PostCount = g.Count(),
-                                    FullName = (await _userRepository.GetUserByIdAsync(g.Key)).FullName,
-                                    LinkedInProfile = (await _userRepository.GetUserByIdAsync(g.Key)).LinkedInProfile
-                                })
+                                .ToListAsync();
+
+            var bestBloggers = postGroups
+                                .Join(_userRepository.Users,
+                                    groupedPosts => groupedPosts.Key,
+                                    user => user.Id,
+                                    (groupedPosts, user) => new BestBloggerViewModel
+                                    {
+                                        UserId = user.Id,
+                                        FullName = user.FullName,
+                                        UserName = user.UserName,
+                                        ProfilePhoto = user.ProfilePhoto,
+                                        Email = user.Email,
+                                        LinkedInProfile = user.LinkedInProfile,
+                                        PostCount = groupedPosts.Count()
+                                    })
                                 .OrderByDescending(x => x.PostCount)
                                 .Take(5)
-                                .ToListAsync()
+                                .ToList();
 
             return View(bestBloggers);        
         }

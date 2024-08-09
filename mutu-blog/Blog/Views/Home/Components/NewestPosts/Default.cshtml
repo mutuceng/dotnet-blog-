@@ -1,16 +1,20 @@
 @model IEnumerable<Blog.Entity.Post>
 
-<div class="second-component card mb-3" >
+@foreach(var blog in Model)
+{  
+  <div class="blog-component card m-2" >
     <div class="row g-0">
       <div class="col">
-        <img src="..." class=" rounded-start" alt="...">
+        <img src="@Url.Content(blog.PostImage)" class="d-block w-100" alt="@blog.Title">
       </div>
       <div class="col ">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">@blog.Title</h5>
+          <p class="card-text short-text">@blog.Content.Substring(0, Math.Min(100, blog.Content.Length))...</p>
+          <p class="card-text long-text">@blog.Content</p>
+          <a href="#" class="btn btn-primary">Primary Tag</a>
         </div>
       </div>
     </div>
   </div>
+}
