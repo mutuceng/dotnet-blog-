@@ -20,16 +20,18 @@ namespace Blog.Controllers
             _context = context;
         }
 
-        [HttpGet("")]
+        [Route("")]
         public IActionResult Index()
         {
-            return View();
+            var posts = _context.Posts;
+            return View(posts);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [Route("/Error")]
         public IActionResult Error()
         {
-            return View("Error");
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         [HttpGet("Blog/Create")]

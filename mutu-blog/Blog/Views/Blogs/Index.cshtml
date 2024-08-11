@@ -1,0 +1,31 @@
+@model IEnumerable<Blog.Entity.Post>
+    <div class="blogs container d-flex">
+        <div class="col-8">
+            @foreach(var blog in Model)
+            {
+                <div class="blog-component card m-2" >
+                    <div class="row g-0">
+                      <div class="col">
+                        <img src="@Url.Content(blog.PostImage)" class="d-block w-100" alt="@blog.Title">
+                      </div>
+                      <div class="col ">
+                        <div class="card-body">
+                          <h5 class="card-title">@blog.Title</h5>
+                          <p class="card-text short-text">@blog.Content.Substring(0, Math.Min(100, blog.Content.Length))...</p>
+                          <p class="card-text long-text">@blog.Content</p>
+                          <a href="#" class="btn btn-primary">Primary Tag</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            }
+        </div>
+        <div class="col-4">
+                <div class="tags container">
+                    @await Component.InvokeAsync("TagsMenu")
+                </div>
+                <div class="new-posts container">
+                    @await Component.InvokeAsync("NewestPosts")
+                </div>
+        </div>
+    </div>
