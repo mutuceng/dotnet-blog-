@@ -22,16 +22,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blog/AllBlogs.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xBbGxCbG9ncy5jc2h0bWw=
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blogs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blog/Blog.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9nLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blog/BlogList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9nTGlzdC5jc2h0bWw=
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blogs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Components/BestBloggers/Default.cshtml]

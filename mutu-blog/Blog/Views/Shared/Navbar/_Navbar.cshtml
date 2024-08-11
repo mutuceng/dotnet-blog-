@@ -23,8 +23,11 @@
             </ul>
         </div>
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Ara...">
-            <i class="bi bi-search"></i>
+            <a asp-area="" asp-controller="Blogs" asp-action="Create">
+                <i class="bi bi-pencil-square"></i>
+                Blog Yaz
+            </a>
+            
         </div>
         <div class="profil-icon">
             <a asp-area="" asp-controller="Users" asp-action="Login"><i class="bi bi-person-circle"></i></a>

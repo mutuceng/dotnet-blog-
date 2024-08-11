@@ -1,0 +1,50 @@
+@model PostCreateViewModel
+<div class="blog-create container m-4 p-3" style="background-color: rgb(159,153,152);">
+    <div class="form-group col-6 mb-2">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group col-10 mb-2">
+        <label asp-for="Content" class="control-label"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group col-4 mb-2">
+        <label asp-for="PostImage" class="control-label"></label>
+        <input asp-for="PostImage" class="form-control" type="file" />
+        <span asp-validation-for="PostImage" class="text-danger"></span>
+    </div>
+    
+    <!-- Birincil Etiket (Primary Tag) -->
+    <div class="form-group col-4 mb-2">
+        <label asp-for="PrimaryTagName" class="control-label"></label>
+        <select asp-for="PrimaryTagName" class="form-control" asp-items="@(new SelectList(Model.Tags))">
+            <option value="">Bir etiket seçin</option>
+        </select>
+        <span asp-validation-for="PrimaryTagName" class="text-danger"></span>
+    </div>
+    
+    <!-- Etiketler (Tags) -->
+    <div class="form-group col-4 mb-2">
+        <label asp-for="Tags" class="control-label"></label>
+        <select asp-for="Tags" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))" multiple>
+        </select>
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-2">Yayınla</button>
+</div>
+
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.3.0/tinymce.min.js" integrity="sha512-RUZ2d69UiTI+LdjfDCxqJh5HfjmOcouct56utQNVRjr90Ea8uHQa+gCxvxDTC9fFvIGP+t4TDDJWNTRV48tBpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        tinymce.init({
+            selector:'#Content'
+        });
+    </script>
+}
+
