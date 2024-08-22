@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4JsOqlAZI47QAQ36CRw2HDa+q/yDm4hC+wc1F72H+aM=",
+  "Hash": "867orhpV2JEVOFGAwiyZL8azlAe1C5KfkrldsrNuUNQ=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Blog.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\blogs\\all-blogs.css",
+      "SourceId": "Blog",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "RelativePath": "css/blogs/all-blogs.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\blogs\\all-blogs.css"
     },
     {
       "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\home\\carousel.css",

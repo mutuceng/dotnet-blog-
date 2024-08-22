@@ -35,11 +35,11 @@
     font-weight: bolder;
 }
 
-.short-text {
+.carousel .short-text {
   display: block;
 }
 
-.long-text {
+.carousel .long-text {
   display: none;
 }
 

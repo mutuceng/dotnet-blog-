@@ -18,5 +18,7 @@ namespace Blog.Models
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Password {get; set;} = null!;
+
+        public bool RememberMe {get; set;} = false;
     }
 }

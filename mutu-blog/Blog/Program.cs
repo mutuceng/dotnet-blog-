@@ -49,6 +49,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Lockout.AllowedForNewUsers = true;
 });
 
+builder.Services.ConfigureApplicationCookie( options =>
+{
+    options.LoginPath = "/Users/Login";
+    options.LogoutPath ="/Home/Index";
+
+    options.SlidingExpiration = true; // cookie kaç gün saklansın
+    options.ExpireTimeSpan = TimeSpan.FromDays(30);
+});
+
 var app = builder.Build();
 
 // using (var scope = app.Services.CreateScope())
@@ -83,7 +92,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
