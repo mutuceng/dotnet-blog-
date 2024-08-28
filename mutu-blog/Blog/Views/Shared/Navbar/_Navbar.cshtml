@@ -17,20 +17,69 @@
                 <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Hakkimda">Hakkımda</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">İletişim</a>
-                </li>
             </ul>
         </div>
-        <div class="search-container">
+
+        @if(User.Identity!.IsAuthenticated)
+        {
+            @if (!User.IsInRole("user"))
+            {
+                <div class="search-container">
+                    <a asp-area="" asp-controller="Blogs" asp-action="Create">
+                        <i class="bi bi-pencil-square"></i>
+                        Blog Yaz
+                    </a>
+                </div>
+            }
+            
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- <i class="bi bi-person-circle"></i> -->
+                     @User.Identity.Name
+                </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Logout">Logout</a>
+                </div>
+              </div>
+        }
+        else
+        {
+            <div class="search-container">
+                <a asp-area="" asp-controller="Users" asp-action="Login">
+                    Login
+                </a>
+            </div>
+        }
+        <!-- <div class="search-container">
             <a asp-area="" asp-controller="Blogs" asp-action="Create">
                 <i class="bi bi-pencil-square"></i>
                 Blog Yaz
             </a>
             
-        </div>
-        <div class="profil-icon">
-            <a asp-area="" asp-controller="Users" asp-action="Login"><i class="bi bi-person-circle"></i></a>
-        </div>
+        </div> -->
+        <!-- <div class="profil-icon dropdown">
+            <a class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                <i class="bi bi-person-circle"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Profile">Profile</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Logout">Logout</a></li>
+            </ul>
+        </div> -->
+        <!-- <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-circle"></i>
+                 @User.Identity.Name
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Profile">Profile</a>
+                <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Logout">Logout</a>
+            </div>
+          </div>  -->
+        
+        
     </div>
 </nav>

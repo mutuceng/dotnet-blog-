@@ -114,7 +114,7 @@
 {
     position: relative;
     margin-right:1rem;
-    width: 120px;
+    width: 100px;
     height: 30px;
     font-size: larger;
 
@@ -129,6 +129,8 @@
 .search-container i {
     color: black;
 }
+
+
 
 .categories{
     display: block;

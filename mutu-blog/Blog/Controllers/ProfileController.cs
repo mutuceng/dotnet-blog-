@@ -11,13 +11,7 @@ namespace Blog.Controllers
     [Route("[controller]")]
     public class ProfileController : Controller
     {
-        private readonly ILogger<ProfileController> _logger;
-
-        public ProfileController(ILogger<ProfileController> logger)
-        {
-            _logger = logger;
-        }
-
+        [HttpGet("Profile")]
         public IActionResult Index()
         {
             return View();

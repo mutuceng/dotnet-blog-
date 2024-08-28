@@ -19,14 +19,6 @@ namespace Blog.Models
         [Display(Name =  "Kullanıcı Adı")]
         public string UserName { get; set; } = null!;
 
-        private string? _profilePhoto;
-        [Display(Name =  "Profil Fotoğrafı")]
-        public string ProfilePhoto
-        {
-            get => string.IsNullOrEmpty(_profilePhoto) ? "default-profile-photo.jpg" : _profilePhoto;
-            set => _profilePhoto = value;
-        }
-
         [Required]
         [StringLength(10, ErrorMessage = "{0} alanı en az {2} karakter uzunluğunda olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
