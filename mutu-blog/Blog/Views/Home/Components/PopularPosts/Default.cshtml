@@ -10,9 +10,12 @@
                 <div class="carousel-item active">
                     <div class="carousel-card card">
                         <div class="img-wrapper">
-                            <img src="@Url.Content(firstPost.PostImage)" class="d-block w-100" alt="@firstPost.Title">
+                            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@firstPost.PostId">
+                                <img src="@Url.Content(firstPost.PostImage)" class="d-block w-100" alt="@firstPost.Title">
+                            </a>
+                   
                         </div>
-                        <div class="card-body">
+                        <div class="card-body mt-2">
                             <h5 class="card-title">@firstPost.Title</h5>
                             <p class="carousel card-text short-text">@firstPost.Content.Substring(0, Math.Min(150, firstPost.Content.Length))...</p>
                             <p class="carousel card-text long-text">@firstPost.Content</p>
@@ -27,9 +30,11 @@
                 <div class="carousel-item">
                     <div class="carousel-card card">
                         <div class="img-wrapper">
-                            <img src="@Url.Content(post.PostImage)" class="d-block w-100" alt="@post.Title">
+                            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@post.PostId">
+                                <img src="@Url.Content(post.PostImage)" class="d-block w-100" alt="@post.Title">
+                            </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body mt-2">
                             <h5 class="card-title">@post.Title</h5>
                             <p class="carousel card-text short-text">@post.Content.Substring(0, Math.Min(150, post.Content.Length))...</p>
                             <p class="carousel card-text long-text">@post.Content</p>

@@ -87,7 +87,7 @@ namespace Blog.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("User/Login");
+            return RedirectToAction("Login");
         }
 
 
@@ -100,23 +100,39 @@ namespace Blog.Controllers
         [HttpPost("User/Register")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = _userRepository.Users.FirstOrDefault(x => x.UserName == model.UserName || x.Email == model.Email);
-                if(user == null)
+                
+                if (user == null)
                 {
-                    _userRepository.CreateUser(
-                        user = new User {
-                            UserName  = model.UserName,
-                            Email = model.Email,
-                            ProfilePhoto = "~/images/blank-profile-pic.jpg.jpg",
-                            RoleId = "85512be7-2d8e-46aa-ae95-34a333e836de"
-                    });
-
+                    user = new User
+                    {
+                        UserName = model.UserName,
+                        Email = model.Email,
+                        ProfilePhoto = "~/images/blank-profile-pic.jpg",
+                        RoleId = "85512be7-2d8e-46aa-ae95-34a333e836de"
+                    };
+                    
+                    // Kullanıcıyı veritabanına ekleyin
                     var result = await _userManager.CreateAsync(user, model.Password);
+                    
+                    if (result.Succeeded)
+                    {
+                        // Kullanıcıya Admin rolünü atayın
+                        await _userManager.AddToRoleAsync(user, "User");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            Console.WriteLine($"Error: {error.Description}");
+                        }
+                    }
                 }
-                return RedirectToAction("User/Login");
+                return RedirectToAction("Login");
             }
+
             return View(model);
         }
 

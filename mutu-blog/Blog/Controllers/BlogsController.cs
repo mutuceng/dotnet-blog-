@@ -14,6 +14,7 @@ namespace Blog.Controllers
     public class BlogsController : Controller
     {
         private readonly BlogContext _context;
+        
 
         public BlogsController(BlogContext context)
         {
@@ -61,6 +62,24 @@ namespace Blog.Controllers
         private List<string> GetAvailableTags()
         {
             return _context.Tags.Select(tag => tag.Name).ToList();
+        }
+
+        [HttpGet("Blog/Details")]
+        public IActionResult Details(int id)
+        {   
+            var blogPost = _context.Posts.FirstOrDefault(b => b.PostId == id);
+            if (blogPost == null)
+            {
+                return View();
+            }
+
+            var viewModel = new BlogDetailsViewModel
+            {
+                Blog = blogPost,
+                Comments = _context.Comments.Where(c => c.PostId == id).ToList()
+            };
+
+            return View(viewModel);
         }
     }
 }

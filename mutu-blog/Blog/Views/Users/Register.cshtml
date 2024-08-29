@@ -11,9 +11,13 @@
         <img src="~/images/blank-profile-pic.jpg" alt="">
       </div>
     <input type="text" asp-for="UserName" placeholder="UserName" required />
+    <span asp-validation-for="UserName" class="text-danger"></span>
     <input type="email" asp-for="Email" placeholder="Email" required />
+    <span asp-validation-for="Email" class="text-danger"></span>
     <input type="password" asp-for="Password" placeholder="Password" required />
+    <span asp-validation-for="Password" class="text-danger"></span>
     <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password" required />
+    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     <button type="submit" class="mb-3 mt-2">Kayıt Ol</button>
     <p>Zaten hesabın var mı? Giriş yap.</p>
     <button id="Login">Giriş Yap</button>
