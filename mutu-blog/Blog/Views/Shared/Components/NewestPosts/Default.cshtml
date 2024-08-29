@@ -4,10 +4,15 @@
 {  
   <div class="blog-component card mt-3" >
     <div class="row g-0">
-      <div class="col">
-        <img src="@Url.Content(blog.PostImage)" class="d-block w-100" alt="@blog.Title">
+      <div class="col-5">
+        <div class="image-container">
+          <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.PostId">
+            <img src="@Url.Content(blog.PostImage)" class="img-fluid" alt="@blog.Title">
+          </a>
+          
       </div>
-      <div class="col ">
+      </div>
+      <div class="col-7 ">
         <div class="card-body">
           <h5 class="card-title">@blog.Title</h5>
           <p class="card-text ">@blog.Content.Substring(0, Math.Min(80, blog.Content.Length))...</p>

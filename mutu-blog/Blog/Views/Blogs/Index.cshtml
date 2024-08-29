@@ -1,41 +1,66 @@
 @model IEnumerable<Blog.Entity.Post>
+@{
+    int currentPage = 1; // This should be dynamically set based on the current page
+    int totalPages = 10; // This should be dynamically calculated based on the total number of items and items per page
+}
   <head>
     <link rel="stylesheet" href="~/css/blogs/all-blogs.css">
   </head>
 
     <div class="blogs container d-flex mt-4">
       
-        <div class="col-8">
-            <!-- <div class="search container mt-2 mb-3">
-              <i class="bi bi-search"></i>
-              <input type="text">
-            </div> -->
+        <div class="allblogs col-8">
             <div class="search container mt-2 mb-3">
               <input type="text" id="aranan" class="search-input" placeholder="Ara...">
               <button id="arama" class="search-button" type="button">
                   <i class="bi bi-search"></i>
               </button>  
-          </div>
+            </div>
             @foreach(var blog in Model)
             {
-                <div class="blog-component card" >
+                <div class="blog-component card mb-3">
                     <div class="row g-0">
-                      <div class="col">
-                        <img src="@Url.Content(blog.PostImage)" class="d-block w-100" alt="@blog.Title">
-                      </div>
-                      <div class="col ">
-                        <div class="card-body">
-                          <h5 class="card-title">@blog.Title</h5>
-                          <p class="card-text">@blog.Content.Substring(0, Math.Min(100, blog.Content.Length))...</p>
-                          <p class="card-text">@blog.Content</p>
-                          <a href="#" class="btn btn-primary">Primary Tag</a>
+                        <div class="col-md-4">
+                            <div class="image-container">
+                              <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.PostId">
+                                <img src="@Url.Content(blog.PostImage)" class="img-fluid" alt="@blog.Title">
+                              </a>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@blog.Title</h5>
+                                <p class="card-text">@blog.Content.Substring(0, Math.Min(100, blog.Content.Length))...</p>
+                                <p class="card-text"><small class="text-muted">@blog.Content</small></p>
+                                <a href="#" class="btn btn-primary">Primary Tag</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                </div>
             }
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
         </div>
-        <div class="col-4">
+        
+
+        <div class="col-4 mt-5">
                 <div class="tags container"> 
                     @await Component.InvokeAsync("TagsMenu")
                 </div>
