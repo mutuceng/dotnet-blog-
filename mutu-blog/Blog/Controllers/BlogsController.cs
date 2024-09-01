@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Data.Abstract;
 using Blog.Data.Concrete.EfCore;
+using Blog.Entity;
 using Blog.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,17 +16,45 @@ namespace Blog.Controllers
     public class BlogsController : Controller
     {
         private readonly BlogContext _context;
+        private IPostRepository _postRepository;
+        private ITagRepository _tagRepository;
         
 
-        public BlogsController(BlogContext context)
+        public BlogsController(BlogContext context, IPostRepository postRepository, ITagRepository tagRepository)
         {
             _context = context;
+            _postRepository = postRepository;
+            _tagRepository = tagRepository;
         }
 
         [Route("")]
         public IActionResult Index()
         {
-            var posts = _context.Posts;
+            // Tüm postları almak için IQueryable tanımlıyoruz
+            IQueryable<Post> posts = _context.Posts;
+
+            return View(posts);
+        }
+
+        [HttpGet("Blog/Tag/{tagId}")]
+        public IActionResult Index(int? tagId)
+        {
+            // Tüm postları almak için IQueryable tanımlıyoruz
+            IQueryable<Post> posts = _context.Posts;
+
+            // Eğer tagId geçerliyse, postları filtreliyoruz
+            if (tagId.HasValue)
+            {
+                    
+                var filteredPosts = 
+                    from post in _context.Posts
+                    join postTag in _context.PostTags on post.PostId equals (int)postTag["PostId"]
+                    where (int)postTag["TagId"] == tagId // Kullanıcının gönderdiği TagID
+                    select post;;
+
+                 return View(filteredPosts);
+            }
+
             return View(posts);
         }
 
@@ -81,5 +111,20 @@ namespace Blog.Controllers
 
             return View(viewModel);
         }
+        
+        // public IActionResult PostsByTag(int tagId)
+        // {
+
+
+        //     var filteredPosts = 
+        //         from post in _context.Posts
+        //         join postTag in _context.PostTags on post.PostId equals (int)postTag["PostId"]
+        //          where (int)postTag["TagId"] == tagId // Kullanıcının gönderdiği TagID
+        //         select post;
+
+
+
+        //     return View(filteredPosts);
+        // }
     }
 }

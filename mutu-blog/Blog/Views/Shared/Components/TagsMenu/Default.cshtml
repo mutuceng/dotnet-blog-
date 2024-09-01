@@ -9,7 +9,7 @@
                 @foreach(var tag in Model)
                 {
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-outline-secondary btn-sm">@tag.Name</a>
+                        <a asp-controller="Blogs" asp-action="Index" asp-route-tagId="@tag.TagId" class="btn btn-outline-secondary btn-sm">@tag.Name</a>
                     </li>
                 }
             </ul>

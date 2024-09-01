@@ -77,9 +77,10 @@ namespace Blog.Data.Concrete.EfCore
                 .WithOne( pi => pi.Post)
                 .HasForeignKey(pi => pi.PostId);   
             
-            
-
+        
         }
+        public DbSet<Dictionary<string, object>> PostTags => Set<Dictionary<string, object>>("PostTag");
+
 
 
     }
