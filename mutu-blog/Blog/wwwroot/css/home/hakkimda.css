@@ -1,30 +1,167 @@
-.writing
+@font-face {
+    font-family: AgrandirBold;
+    src: url(~/fonts/Agrandir-TextBold.otf);
+  }
+
+@font-face {
+font-family: AgrandirGrandHeavy;
+src: url(~/fonts/Agrandir-GrandHeavy.otf);
+}
+
+
+  
+.black-line
 {
-    padding: 2rem 3.2rem 2rem 3.2rem;
-    margin: 3rem 0 3rem 0 ;
-    font-size: 14px;
-    border-radius: 5%;
-    border-color: black;
-    height: 16rem;
-    border: solid 2px;
-    background: rgb(105,104,96);
-    background: linear-gradient(90deg, rgba(105,104,96,0.9920343137254902) 0%, rgba(223,208,122,1) 51%, rgba(81,194,203,1) 100%);
+    background-color: black;
+    height: 75%;
+    width: 10px;
+    margin-bottom: 80px;
 }
 
-.hakkimda-container {
+.info
+{
+  
+    margin-left: 0px;
+    margin-right: 0px;
+    order: 1;
     display: flex;
-    height: 20rem;
-    
+    margin-bottom: 25px;
+
 }
 
-.hakkimda-container .image img{
-    height: 20rem;
-    padding: 0;
-    border-radius: 5%;
-    box-shadow: 10px 10px 16px 10px rgba(0, 0, 0, 0);
-}
 
 .hakkimda {
-    padding: 4rem;
-    background-color: #E7DFD8;
+    margin-bottom: 80px;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+}
+.writing
+{
+    padding: 2rem 0 0rem 1rem;
+    font-family: AgrandirGrandHeavy;
+    font-size: 19px;    
+    height: 30rem;
+    
+    border: solid 1px;
+    background: rgb(244,244,244);
+    background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(223,238,170,1) 33%, rgba(154,195,246,1) 82%, rgba(235,235,235,1) 100%);
+    border-right: none;
+    border-left: none;
+
+}
+
+.pp-wrapper{
+    height: 100%;
+    padding: 0;
+}
+
+.profileImage
+{
+    height: 36rem;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
+    box-shadow: 10px 10px 16px 10px rgba(0, 0, 0, 0);
+    order: 2;
+
+}
+
+.profileImage h1, .writing h2
+{
+    font-family: AgrandirBold;
+    letter-spacing: 2;  
+}
+
+.profileImage h1
+{
+    font-size: 48px;
+}
+
+.writing h2{
+    color: #8F7C70;
+    font-weight: bolder;
+    font-size: 42px; 
+}
+
+.pp-wrapper img{
+    height: 100%;
+    width: 100%;
+}
+
+.social-icons
+{
+    margin-left: 10px;
+    height: 40px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.social-icons a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    margin-top: auto;
+}
+
+@media (max-width: 992px){
+    .hakkimda {
+        flex-direction: column-reverse;
+    }
+
+    .profileImage {
+        
+        display: none;
+    
+    }
+    .info{
+        height: 100%;
+        margin-top: 40px;
+    }
+
+    .writing {
+        height: 28rem;
+        border:none;
+    } 
+    
+
+    .black-line
+    {
+        display: none;
+    }
+
+    .social-icons
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profileImage h1
+    {
+        margin-left: 8px;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .profileImage h1
+    {
+        font-size: 42px;
+    }
+
+    .writing {
+        height: 33rem;
+        border:none;
+    } 
+}
+
+@media (max-width: 767px) {
+    .writing {
+        height: 34rem;
+        border:none;
+    } 
 }

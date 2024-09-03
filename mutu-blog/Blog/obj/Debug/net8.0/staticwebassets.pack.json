@@ -45,6 +45,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\fonts\\Agrandir-GrandHeavy.otf",
+      "PackagePath": "staticwebassets\\fonts\\Agrandir-GrandHeavy.otf"
+    },
+    {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\fonts\\Agrandir-TextBold.otf",
+      "PackagePath": "staticwebassets\\fonts\\Agrandir-TextBold.otf"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\fonts\\dejavu-serif.bold.ttf",
       "PackagePath": "staticwebassets\\fonts\\dejavu-serif.bold.ttf"
     },

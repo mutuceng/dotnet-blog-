@@ -8,67 +8,80 @@
   </head>
 
     <div class="blogs container d-flex mt-4">
-      
-        <div class="allblogs col-8">
-            <div class="search container mt-2 mb-3">
-              <input type="text" id="aranan" class="search-input" placeholder="Ara...">
-              <button id="arama" class="search-button" type="button">
-                  <i class="bi bi-search"></i>
-              </button>  
+      <div class="allblogs col-8">
+        <div class="search container mt-2 mb-3">
+          <input type="text" id="aranan" class="search-input" placeholder="Ara...">
+          <button id="arama" class="search-button" type="button">
+              <i class="bi bi-search"></i>
+          </button>  
+        </div>
+        @if (!Model.Any())
+        {
+          <div class="alert alert-warning" role="alert">
+              Aradığınız kriterlere uygun bir blog bulunamadı.
+          </div>
+        }
+        else
+        {
+          @foreach(var blog in Model)
+          {
+            <div class="blog-component card mb-3">
+              <div class="row g-0">
+                  <div class="col-md-4">
+                      <div class="image-container">
+                        <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.PostId">
+                          <img src="@Url.Content(blog.PostImage)" class="img-fluid" alt="@blog.Title">
+                        </a>
+                      </div>
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body d-flex flex-column">
+                          <h4 class="card-title">@blog.Title</h4>
+                          <p class="card-text">@blog.Content.Substring(0, Math.Min(200, blog.Content.Length))...</p>
+                          
+                          <div class="mt-auto">
+                            <a href="#" class="btn btn-primary">Primary Tag</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
-            @foreach(var blog in Model)
-            {
-                <div class="blog-component card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="image-container">
-                              <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.PostId">
-                                <img src="@Url.Content(blog.PostImage)" class="img-fluid" alt="@blog.Title">
-                              </a>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">@blog.Title</h5>
-                                <p class="card-text">@blog.Content.Substring(0, Math.Min(100, blog.Content.Length))...</p>
-                                <p class="card-text"><small class="text-muted">@blog.Content</small></p>
-                                <a href="#" class="btn btn-primary">Primary Tag</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-        </div>
-        
+          
+          }
 
-        <div class="col-4 mt-5">
-                <div class="tags container"> 
-                    @await Component.InvokeAsync("TagsMenu")
-                </div>
-                <div class="new-posts container">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Son Eklenenler</h5>
-                        </div>
-                    @await Component.InvokeAsync("NewestPosts")
-                </div>
-        </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        }
+
+      </div>
+      
+
+      <div class="col-4 mt-5">
+              <div class="tags container"> 
+                  @await Component.InvokeAsync("TagsMenu")
+              </div>
+              <div class="new-posts container">
+                      <div class="card-header">
+                          <h5 class="card-title mb-0">Son Eklenenler</h5>
+                      </div>
+                  @await Component.InvokeAsync("NewestPosts")
+              </div>
+      </div>
     </div>
