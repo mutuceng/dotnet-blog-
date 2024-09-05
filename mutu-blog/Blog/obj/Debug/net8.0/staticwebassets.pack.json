@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\blogs\\all-blogs.css"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\blogs\\blog-create.css",
+      "PackagePath": "staticwebassets\\css\\blogs\\blog-create.css"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\blogs\\blog-detail.css",
       "PackagePath": "staticwebassets\\css\\blogs\\blog-detail.css"
     },

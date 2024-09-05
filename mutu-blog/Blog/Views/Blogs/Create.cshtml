@@ -1,6 +1,10 @@
 @model PostCreateViewModel
-<div class="blog-create container m-4 p-3" style="background-color: rgb(159,153,152);">
-    <div class="form-group col-6 mb-2">
+
+<head>
+    <link rel="stylesheet" href="~/css/blogs/blog-create.css" asp-append-version="true" />
+</head>
+<div class="blog-create container">
+    <div class="form-group col-10 mb-2">
         <label asp-for="Title" class="control-label"></label>
         <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
@@ -12,30 +16,37 @@
         <span asp-validation-for="Content" class="text-danger"></span>
     </div>
     
-    <div class="form-group col-4 mb-2">
+    <div class="form-group col-5 mb-2">
         <label asp-for="PostImage" class="control-label"></label>
         <input asp-for="PostImage" class="form-control" type="file" />
         <span asp-validation-for="PostImage" class="text-danger"></span>
     </div>
     
-    <!-- Birincil Etiket (Primary Tag) -->
-    <div class="form-group col-4 mb-2">
-        <label asp-for="PrimaryTagName" class="control-label"></label>
-        <select asp-for="PrimaryTagName" class="form-control" asp-items="@(new SelectList(Model.Tags))">
-            <option value="">Bir etiket seçin</option>
-        </select>
-        <span asp-validation-for="PrimaryTagName" class="text-danger"></span>
+    
+    <div class="tag-group mt-4 mb-4">
+        <!-- Birincil Etiket (Primary Tag) -->
+        <div class="form-group col-5">
+            <label asp-for="PrimaryTagName" class="control-label"></label>
+            <select asp-for="PrimaryTagName" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))">
+                <option value="">Bir etiket seçin</option>
+            </select>
+            <span asp-validation-for="PrimaryTagName" class="text-danger"></span>
+        </div>
+        
+        <!-- Etiketler (Tags) -->
+        <div class="form-group col-5">
+            <div id="selectedOptions">
+                
+            </div>
+            
+            <label asp-for="Tags" class="control-label"></label>
+            <select id="secimler" asp-for="Tags" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))" multiple>
+            </select>
+            <span asp-validation-for="Tags" class="text-danger"></span>
+        </div>
     </div>
     
-    <!-- Etiketler (Tags) -->
-    <div class="form-group col-4 mb-2">
-        <label asp-for="Tags" class="control-label"></label>
-        <select asp-for="Tags" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))" multiple>
-        </select>
-        <span asp-validation-for="Tags" class="text-danger"></span>
-    </div>
-    
-    <button type="submit" class="btn btn-primary mt-2">Yayınla</button>
+    <button type="submit" class="publish-btn btn-primary">Yayınla</button>
 </div>
 
 @section Scripts
@@ -44,6 +55,36 @@
     <script>
         tinymce.init({
             selector:'#Content'
+        });
+
+
+        const selectElement = document.getElementById('secimler');
+        const selectedOptionsDiv = document.getElementById('selectedOptions');
+        const selectedValues = new Set(); // Aynı öğenin tekrar eklenmesini önlemek için Set kullanıyoruz
+
+        // Select kutusundaki değişiklikleri dinle
+        selectElement.addEventListener('dblclick', function() {
+            const selectedOptionText = selectElement.options[selectElement.selectedIndex].text;
+            const selectedOptionValue = selectElement.value;
+
+            // Eğer seçenek daha önce seçilmişse ekleme
+            if (!selectedValues.has(selectedOptionValue)) {
+                selectedValues.add(selectedOptionValue);
+
+                // Yeni kutu oluştur
+                const box = document.createElement('div');
+                box.className = 'selected-box';
+                box.innerHTML = `${selectedOptionText} <span class="remove-btn">&times;</span>`;
+
+                // Kutuya çarpı işareti tıklama olayını ekle
+                box.querySelector('.remove-btn').addEventListener('click', function() {
+                    selectedValues.delete(selectedOptionValue); // Seçim set'ten kaldırılıyor
+                    box.remove(); // Kutu siliniyor
+                });
+
+                // Kutu div'e ekle
+                selectedOptionsDiv.appendChild(box);
+            }
         });
     </script>
 }
