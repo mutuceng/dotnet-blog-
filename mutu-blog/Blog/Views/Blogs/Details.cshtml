@@ -8,9 +8,10 @@
         <div class="blog-detail-wrapper col-md-6">
             <h2>@Model.Blog.Title</h2>
             <div class="tags">
-                <button class="btn btn-primary btn-sm">Tag1</button>
-                <button class="btn btn-primary btn-sm">Tag2</button>
-                <button class="btn btn-primary btn-sm">Tag3</button>
+                @foreach (var tag in Model.Tags)
+                {
+                    <a href=""><span class="tag">@tag.Name</span></a>
+                }
             </div>
             
 
@@ -38,7 +39,14 @@
             <div class="comments">
                 <div class="card border-0">
                     <div class="card-header pb-0">
-                        <h4>@Model.Comments.Count() adet yorum</h4>
+                        @if (Model.Comments.Count() > 0)
+                        {
+                            <h4>@Model.Comments.Count() adet yorum</h4>
+                        }
+                        else {
+                            <h4>Henüz yorum yapılmamış.</h4>
+                        }
+                        
                     </div>
                 </div>
                 <div class="comment-body">
@@ -64,17 +72,46 @@
 
 
 
+                <div class="make-comment">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <h5 class="mb-3" onclick="OnOff()">Yorum Ekle</h5>
+                        <form action="" method="post">
+                            <input type="hidden" id="" name="" value="">
+                            <div class="mb-3">
+                                <label for="Text" class="form-label">Yorum</label>
+                                <textarea type="text" name="Text" id="Text" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button id="btnYorumKayit" type="submit" class="btn btn-primary">Kaydet</button>
+                            </div>
+                        </form>
+                    } else {
+                        <p class="text-danger">Yorum eklemek için lütfen <a asp-controller="Users" asp-action="Login">giriş yapın</a>.</p>
+                    }
 
-                <button>Yorum yap</button>
+                </div>
             </div>
         </div>
     
 
 
         <!-- Sağ Sidebar -->
-        <div class="sidebar col-sm-12 col-md-3">
+        <div class="sidebar col-md-3">
             <h3>Son Eklenenler</h3>
             @await Component.InvokeAsync("NewestPosts")
         </div>
     </div>
 </div>
+
+<script>
+    function OnOff() {
+    
+        var form = document.querySelector('.make-comment form');
+        if (form.style.display === "none") {
+            form.style.display = "block"; // Formu aç
+        } else {
+            form.style.display = "none";  // Formu kapat
+        }
+}
+</script>

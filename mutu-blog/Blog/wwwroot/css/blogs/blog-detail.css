@@ -8,7 +8,8 @@
 .blog-img-wrapper img
 {
     
-    height: 400px;
+    height: 350px;
+    width: 500px;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-bottom-left-radius: 10%;
@@ -27,17 +28,85 @@
     color: #6D656C;
     font-size: 18px;
 }
+.tag
+{
+    background: #81C279;
+    border-radius: 30px;
+    padding: 4px;
+    font-weight: bolder;
+    color: rgb(25, 25, 25);
+    font-family: dejavuSerif;
+}
+
+.make-comment
+{
+    display: block;
+    margin-top: 10px;
+}
+
+.make-comment h5{
+    cursor: pointer;
+}
+
+.make-comment form
+{
+    display: none;
+}
+
+.make-comment textarea
+{
+    width: 600px;
+}
+
+.comment-btn
+{
+    padding: 10px;
+    border-radius: 20px;
+}
 
 .sidebar
 {
-    margin-right: 4rem;
+    margin-right: 1.5rem;
 }
 
 .sidebar .blog-component
 {
-    height: 205px;
+    height: auto;
     background-color: #6D656C;
 }
+.sidebar .card-body
+{
+    height: auto;
+}
+
+@media (max-width: 1460px) {
+    .sidebar .col-md-5
+    {
+        display: none;
+    }
+
+    .sidebar .col-md-7
+    {
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 765px) {
+    .sidebar
+    {
+        margin-top: 20px;
+    }
+    .sidebar .col-md-5
+    {
+        display: flex;
+        width: 50%;
+    }
+
+    .sidebar .col-md-7
+    {
+        width: 300px;
+    }
+  }
 
 .blog-component .title
 {

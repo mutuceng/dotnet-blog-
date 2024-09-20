@@ -98,7 +98,7 @@ namespace Blog.Controllers
         [HttpGet("Blog/Details")]
         public IActionResult Details(int id)
         {   
-            var blogPost = _context.Posts.FirstOrDefault(b => b.PostId == id);
+            var blogPost = _context.Posts.Include(b => b.Tags).FirstOrDefault(b => b.PostId == id);
             if (blogPost == null)
             {
                 return View();
@@ -106,11 +106,13 @@ namespace Blog.Controllers
 
             var blogger = _context.Users.FirstOrDefault(u => u.Id == blogPost.UserId);
             
+            
             var viewModel = new BlogDetailsViewModel
             {
                 Blog = blogPost,
                 Comments = _context.Comments.Where(c => c.PostId == id).Include(c => c.User).ToList(),
                 Blogger = blogger ?? new User { UserName = "" },
+                Tags = blogPost.Tags.ToList()
             };
 
             return View(viewModel);

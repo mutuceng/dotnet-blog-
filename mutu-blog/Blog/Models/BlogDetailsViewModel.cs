@@ -7,6 +7,7 @@ namespace Blog.Models
     {
         public Post Blog { get; set; } 
         public List<Comment> Comments { get; set; }
+        public List<Tag> Tags { get; set; }
         public User Blogger {get; set;}
     }
 }
