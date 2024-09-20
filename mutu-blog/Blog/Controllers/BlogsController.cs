@@ -8,6 +8,7 @@ using Blog.Data.Concrete.EfCore;
 using Blog.Entity;
 using Blog.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Blog.Controllers
@@ -103,10 +104,13 @@ namespace Blog.Controllers
                 return View();
             }
 
+            var blogger = _context.Users.FirstOrDefault(u => u.Id == blogPost.UserId);
+            
             var viewModel = new BlogDetailsViewModel
             {
                 Blog = blogPost,
-                Comments = _context.Comments.Where(c => c.PostId == id).ToList()
+                Comments = _context.Comments.Where(c => c.PostId == id).Include(c => c.User).ToList(),
+                Blogger = blogger ?? new User { UserName = "" },
             };
 
             return View(viewModel);

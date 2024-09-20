@@ -5,12 +5,6 @@
 </head>
 <div class="blog-detail container-fluid mt-4">
     <div class="row">
-        <!-- Sol Sidebar -->
-        <div class="sidebar col-md-3">
-            @await Component.InvokeAsync("NewestPosts")
-        </div>
-        <!-- Ana İçerik -->
-
         <div class="blog-detail-wrapper col-md-6">
             <h2>@Model.Blog.Title</h2>
             <div class="tags">
@@ -20,18 +14,66 @@
             </div>
             
 
-            <img src="@Url.Content(Model.Blog.PostImage)" class="post-image" alt="@Model.Blog.Title">
-                    @Model.Blog.Content 
-                    <p>Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum. Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum</p>
+            <div class="blog-img-wrapper">
+                <img src="@Url.Content(Model.Blog.PostImage)" class="post-image" alt="@Model.Blog.Title">
+                <div>
+                    @if(Model.Blog.User != null)
+                    {
+                        <h6>
+                            <a href="/profile/@Model.Blogger.UserName">@Model.Blogger.UserName</a>
+                            <small>@Model.Blog.CreatedDate.ToString("G")</small> <!-- Blog oluşturma tarihi -->
+                        </h6>
+                    }
+                    
+                </div>
+            </div>
+            <div class="main-idea">
+                @Model.Blog.Content.Substring(0, Math.Min(120, Model.Blog.Content.Length))
+            </div>
             <div class="writing">
+                @Model.Blog.Content 
+                <p>Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum. Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum</p>
+            </div>
 
+            <div class="comments">
+                <div class="card border-0">
+                    <div class="card-header pb-0">
+                        <h4>@Model.Comments.Count() adet yorum</h4>
+                    </div>
+                </div>
+                <div class="comment-body">
+                    @foreach(var comment in Model.Comments)
+                    {
+                        <div class="single-comment my-3 d-flex ">
+                            @if (comment.User != null) // Kullanıcı null değilse devam et
+                            {
+                                <img src="@Url.Content(comment.User.ProfilePhoto)" alt="" class="avatar rounded-circle float-start me-3">
+                                <div>
+                                    <div class="mb-2 d-flex">
+                                        <h6 class="me-2">
+                                            <a href="/profile/@comment.User.UserName">@comment.User.UserName</a>
+                                        </h6>
+                                        <small>@comment.CreatedDate.ToString("G")</small>
+                                    </div>
+                                    <p>@comment.Text</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+
+
+
+
+                <button>Yorum yap</button>
             </div>
         </div>
     
 
 
         <!-- Sağ Sidebar -->
-        <div class="sidebar col-md-3">
+        <div class="sidebar col-sm-12 col-md-3">
+            <h3>Son Eklenenler</h3>
             @await Component.InvokeAsync("NewestPosts")
         </div>
     </div>

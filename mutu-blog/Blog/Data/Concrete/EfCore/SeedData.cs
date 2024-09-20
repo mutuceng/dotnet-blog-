@@ -128,7 +128,11 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-30),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4726,
-                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3",
+                            Comments = new List<Comment> { 
+                                new Comment { Text = "Ne zamandır python ile bir şeyler üretmek istiyordum çok faydalı bir yazı oldu.", CreatedDate = DateTime.Now.AddDays(-20), UserId = "ba14fdb4-6f26-482d-9671-335ae8084d57"},
+                                new Comment { Text = "Djangooooooooooooooooooooooo", CreatedDate = DateTime.Now.AddDays(-10), UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"},
+                            }
                         }
                         ,
                         new Post {
@@ -140,7 +144,11 @@ namespace Blog.Data.Concrete.EfCore
                             CreatedDate = DateTime.Now.AddDays(-40),
                             Tags = context.Tags.Take(4).ToList(),
                             PrimaryTagId = 4727,
-                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"
+                            UserId = "7828b013-e45a-4caf-a550-5d119d0237b3",
+                            Comments = new List<Comment> { 
+                                new Comment { Text = "iyi bir kurs", CreatedDate = DateTime.Now.AddDays(-20), UserId = "ba14fdb4-6f26-482d-9671-335ae8084d57"},
+                                new Comment { Text = "çok faydalandığım bir kurs", CreatedDate = DateTime.Now.AddDays(-10), UserId = "7828b013-e45a-4caf-a550-5d119d0237b3"},
+                            }
                         }
                         ,
                         new Post {

@@ -1,12 +1,36 @@
 
-.blog-detail-wrapper img
+.blog-detail-wrapper 
 {
-    width: 100%;
+    margin: auto;
+    font-size: 18px;
+    height: auto;
+}
+.blog-img-wrapper img
+{
+    
     height: 400px;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
+}
+
+.blog-detail-wrapper .main-idea
+{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.blog-detail-wrapper a 
+{
+    text-decoration: none;
+    color: #6D656C;
+    font-size: 18px;
+}
+
+.sidebar
+{
+    margin-right: 4rem;
 }
 
 .sidebar .blog-component
@@ -20,6 +44,17 @@
 
 }
 
+.single-comment
+{
+    background-color: whitesmoke;
+    height: auto;
+    padding: 10px;
+}
+.avatar
+{
+    width: 4rem;
+    height: 4rem;
+}
 
 .sidebar img{
     height: 203px;
