@@ -1,0 +1,71 @@
+@model UserProfileViewModel
+<head>
+    <link rel="stylesheet" href="~/css/user/profile.css" asp-append-version="true" />
+</head>
+
+<div class="container">
+    <div class="left-section">
+        <div class="left-head">
+            @Model.Blogger.UserName
+        </div>
+        <div class="menu">
+           
+            @if(@Model.Blogger.RoleId == "85512be7-2d8e-46aa-ae95-34a333e836de")
+            {
+                <a href="#" class="active">Yorumlar</a>
+            }
+            else{
+                <a href="#" class="active">Bloglar</a>
+                <a href="#">Yorumlar</a>
+                <a href="#">Hakkında</a>
+            }           
+        </div>
+
+
+    </div>
+
+
+    <!-- Left Section -->
+
+    <!-- Right Section -->
+    <div class="right-section">
+        <div class="right-head">
+            <div class="div">
+                <div class="right-top-head">
+                    <div>
+                        @if (!string.IsNullOrEmpty(Model.Blogger.ProfilePhoto))
+                        {
+                            <img src="@Url.Content(Model.Blogger.ProfilePhoto)" alt="Profile Picture">
+                        }
+                        else
+                        {
+                            <img src="~/images/blank-profile-pic.jpg" alt="Default Profile Picture">
+                        }
+                        <h2>@Model.Blogger.UserName</h2>
+                        <span class="edit-profile">Edit profile</span>
+                    </div>
+
+                </div>
+                <div class="following">
+                    <h3>Blogları</h3>
+                    <ul>
+                        @if (Model.Blogs != null && Model.Blogs.Any())
+                        {
+                            @foreach (var blog in Model.Blogs)
+                            {
+                                <li><i class="bi bi-arrow-right-circle-fill"></i> <span>@blog.Title</span></li>
+                            }
+                        }
+                    </ul>
+                    @if (Model.Blogs.Count() > 4)
+                    {
+                        <a class="more">See all (@Model.Blogs.Count())</a>
+                    }
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

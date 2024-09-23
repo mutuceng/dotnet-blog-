@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Blog.Data.Concrete.EfCore;
 
 
 namespace Blog.Controllers
@@ -24,18 +25,21 @@ namespace Blog.Controllers
         private RoleManager<Role> _roleManager;
         private SignInManager<User> _signInManager;
         private readonly IUserRepository _userRepository;
+        private readonly BlogContext _context;
 
 
         public UsersController(
             UserManager<User> userManager,
             RoleManager<Role> roleManager,
             SignInManager<User> signInManager,
-            IUserRepository userRepository )
+            IUserRepository userRepository,
+            BlogContext context )
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _userRepository = userRepository;
+            _context = context;
         }
 
         [HttpGet("User/Login")]
@@ -119,7 +123,6 @@ namespace Blog.Controllers
                     
                     if (result.Succeeded)
                     {
-                        // Kullanıcıya Admin rolünü atayın
                         await _userManager.AddToRoleAsync(user, "User");
                     }
                     else
@@ -134,6 +137,35 @@ namespace Blog.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet("User/Profile/{username}")]
+        public IActionResult Profile(string username)
+        {   
+            var user = _context.Users.FirstOrDefault(u => u.UserName == username);
+
+            if (user == null)
+            {
+                // Kullanıcı bulunamazsa 404 dönebilirsiniz
+                return NotFound("Kullanıcı bulunamadı");
+            }
+
+            var writtenBlogs = _context.Posts
+                    .Where(b => b.UserId == user.Id) // UserId ile blogları sorgula
+                    .ToList();
+
+            var comments = _context.Comments
+                .Where(b => b.UserId == user.Id) // UserId ile blogları sorgula
+                .ToList();
+
+            var viewModel = new UserProfileViewModel
+            {
+                Blogger = user,
+                Blogs = writtenBlogs,
+                Comments = comments
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet("User/Error")]

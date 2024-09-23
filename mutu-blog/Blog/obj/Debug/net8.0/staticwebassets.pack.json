@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\css\\user\\main.css"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\css\\user\\profile.css",
+      "PackagePath": "staticwebassets\\css\\user\\profile.css"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

@@ -9,7 +9,7 @@
             <img src="@Url.Content(blogger.ProfilePhoto)"style="display: block; width: 5rem;" alt="@blogger.FullName MUTU-Blog Profile Picture">
             
             <div class="div m-2">
-              <a class="card-text"><i class="bi bi-at"></i>@blogger.UserName</a>
+              <a class="card-text" asp-controller="Users" asp-action="Profile" asp-route-username="@blogger.UserName"><i class="bi bi-at"></i>@blogger.UserName</a>
               <h6 class="card-text">Blog sayısı: @blogger.PostCount</h6>
             </div>
           </div>
