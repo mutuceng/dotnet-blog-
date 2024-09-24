@@ -156,6 +156,7 @@ namespace Blog.Controllers
 
             var comments = _context.Comments
                 .Where(b => b.UserId == user.Id) // UserId ile blogları sorgula
+                .Include(b => b.Post)
                 .ToList();
 
             var viewModel = new UserProfileViewModel

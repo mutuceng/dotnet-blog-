@@ -1,6 +1,8 @@
 @model UserProfileViewModel
 <head>
     <link rel="stylesheet" href="~/css/user/profile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/blogs/blog-detail.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home/post-user.css" asp-append-version="true" />
 </head>
 
 <div class="container">
@@ -12,22 +14,75 @@
            
             @if(@Model.Blogger.RoleId == "85512be7-2d8e-46aa-ae95-34a333e836de")
             {
-                <a href="#" class="active">Yorumlar</a>
+                <a href="#" class="active" onclick="showContent(event, 'comments')">Yorumlar</a>
             }
             else{
-                <a href="#" class="active">Bloglar</a>
-                <a href="#">Yorumlar</a>
-                <a href="#">Hakkında</a>
+                <a href="#" class="active" onclick="showContent(event, 'blogs')">Bloglar</a>
+                <a href="#" onclick="showContent(event, 'comments')">Yorumlar</a>
+                <a href="#" onclick="showContent(event, 'about')">Hakkında</a>
             }           
+        </div>
+
+        <div id="blogs" class="content">
+            <!-- Blog içerikleri burada -->
+            @if (Model.Blogs != null && Model.Blogs.Any())
+            {
+                @foreach(var blog in Model.Blogs)
+                {
+                    <a class="card-title" asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.PostId">@blog.Title</a> 
+                    <p class="card-text mb-1">@blog.Content.Substring(0, Math.Min(200, blog.Content.Length))...</p>
+                    
+                    <div class="bottom-comment mb-3 ">
+                        <span>@Model.Blogger.UserName</span>
+                        <span>@blog.CreatedDate</span>
+                    </div>
+                }
+            }
+            else{
+                <span>Henüz yazısı bulunmamaktadır.</span>
+            }
+            @if (Model.Blogs.Count() > 4)
+            {
+                <a class="more">See all (@Model.Blogs.Count())</a>
+            }
+
+            
+        </div>
+        
+        <div id="comments" class="content" style="display: none;">
+            <!-- Yorum içerikleri burada -->
+            @foreach(var comment in Model.Comments)
+            {
+                <div class="single-comment my-3 d-flex ">
+                    @if (comment.User != null) // Kullanıcı null değilse devam et
+                    {
+                        
+                        <img src="@Url.Content(comment.User.ProfilePhoto)" alt="" class="avatar rounded-circle float-start me-3">
+                        <div>
+                            <p class="text-muted mb-1">
+                                Yorum yapılan blog: <a asp-controller="Blogs" asp-action="Details" asp-route-id="@comment.Post.PostId">@comment.Post.Title</a>
+                            </p>
+                            <div class="d-flex">
+                                <h6 class="me-2">
+                                    <a asp-controller="Users" asp-action="Profile" asp-route-username="@comment.User.UserName">@comment.User.UserName</a>
+                                </h6>
+                                <small>@comment.CreatedDate.ToString("G")</small>
+                            </div>
+                            <p>@comment.Text</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        
+        <div id="about" class="content" style="display: none;">
+            <!-- Hakkında içerikleri burada -->
+            <p>Yazar bilgisi...</p>
         </div>
 
 
     </div>
 
-
-    <!-- Left Section -->
-
-    <!-- Right Section -->
     <div class="right-section">
         <div class="right-head">
             <div class="div">
@@ -42,30 +97,50 @@
                             <img src="~/images/blank-profile-pic.jpg" alt="Default Profile Picture">
                         }
                         <h2>@Model.Blogger.UserName</h2>
+                        <h6>Blog Sayısı  <span>: @Model.Blogs.Count()</span></h6>
                         <span class="edit-profile">Edit profile</span>
                     </div>
 
                 </div>
-                <div class="following">
-                    <h3>Blogları</h3>
-                    <ul>
-                        @if (Model.Blogs != null && Model.Blogs.Any())
-                        {
-                            @foreach (var blog in Model.Blogs)
-                            {
-                                <li><i class="bi bi-arrow-right-circle-fill"></i> <span>@blog.Title</span></li>
-                            }
-                        }
-                    </ul>
-                    @if (Model.Blogs.Count() > 4)
-                    {
-                        <a class="more">See all (@Model.Blogs.Count())</a>
-                    }
-                    
-                </div>
+                @if(@Model.Blogger.RoleId != "85512be7-2d8e-46aa-ae95-34a333e836de")
+                {
+                    <div class="following">
+                        <h3>İletişim</h3>
+                        <ul>
+                            <li><i class="bi bi-arrow-right-circle-fill"></i><a href="@Model.Blogger.LinkedInProfile">Linkedin</a></li>
+                            <li><i class="bi bi-arrow-right-circle-fill"></i><a href="mailto:@Model.Blogger.Email">Email</a></li>
+                        </ul>                       
+                    </div>
+                }
+
             </div>
 
         </div>
 
     </div>
 </div>
+
+<script>
+    function showContent(event, targetId) 
+    {
+        event.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
+
+        // Tüm içerikleri gizle
+        document.querySelectorAll('.content').forEach(function(content) {
+            content.style.display = 'none';
+        });
+
+        // Tüm a etiketlerinden active sınıfını kaldır
+        document.querySelectorAll('.menu a').forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        // Tıklanan a etiketine active sınıfını ekle
+        event.currentTarget.classList.add('active');
+
+        // İlgili içeriği göster
+        document.getElementById(targetId).style.display = 'block';
+    }
+
+
+</script>

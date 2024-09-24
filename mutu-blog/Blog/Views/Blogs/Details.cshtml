@@ -21,7 +21,7 @@
                     @if(Model.Blog.User != null)
                     {
                         <h6>
-                            <a href="/profile/@Model.Blogger.UserName">@Model.Blogger.UserName</a>
+                            <a asp-controller="Users" asp-action="Profile" asp-route-username="@Model.Blogger.UserName">@Model.Blogger.UserName</a>
                             <small>@Model.Blog.CreatedDate.ToString("G")</small> <!-- Blog oluşturma tarihi -->
                         </h6>
                     }
@@ -59,7 +59,7 @@
                                 <div>
                                     <div class="mb-2 d-flex">
                                         <h6 class="me-2">
-                                            <a href="/profile/@comment.User.UserName">@comment.User.UserName</a>
+                                            <a asp-controller="Users" asp-action="Profile" asp-route-username="@comment.User.UserName">@comment.User.UserName</a>
                                         </h6>
                                         <small>@comment.CreatedDate.ToString("G")</small>
                                     </div>

@@ -5,18 +5,24 @@
 
 .post-user
 {
-    width: 1400px;
+    width: auto;
     margin: auto;
 }
 
-.blog-component
+.blog-component, .blog-component .row, .blog-component .row .col-md-4, .blog-component .row .col-md-8, .blog-component .row  .col-md-8 .card-body
+{
+    height: 200px;
+}
+.blog-component .row
 {
     height: 200px;
 }
 
 .blog-component img
 {
-    max-height:200px;
+    max-height: 200px;
+  height: auto;
+  width: auto;
 }
 
 .blogger-component

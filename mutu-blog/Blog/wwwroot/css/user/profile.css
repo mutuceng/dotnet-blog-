@@ -62,28 +62,27 @@
     border-bottom: 2px solid black;
 }
 
-.post {
-    margin-bottom: 40px;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 20px;
-}
-
-.post h2 {
-    font-size: 1.5em;
+.bottom-comment
+{
+    color: #9F9998;
     font-weight: bold;
-    margin-bottom: 10px;
 }
-
-.post p {
-    font-size: 1em;
-    color: #333;
+#blogs a
+{
+    font-size: 24px;
 }
-
-.post .meta {
+.content .more {
+    margin-top: 10px;
     font-size: 0.9em;
     color: #999;
-    margin-bottom: 20px;
+    cursor: pointer;
+} 
+
+.text-muted
+{
+    font-size: 14px;
 }
+
 
 /* Right Section */
 .right-section {
@@ -142,9 +141,3 @@
     font-size: 0.9em;
 }
 
-.following .more {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #999;
-    cursor: pointer;
-} 
