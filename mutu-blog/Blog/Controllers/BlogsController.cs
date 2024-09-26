@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Blog.Data.Abstract;
 using Blog.Data.Concrete.EfCore;
@@ -81,7 +82,13 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Model verilerini kaydetme işlemleri burada yapılır
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId == null)
+                {
+                    
+                    return RedirectToAction("Login", "Account"); 
+
+                }
 
                 return RedirectToAction("Index");
             }

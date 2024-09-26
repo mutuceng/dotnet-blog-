@@ -26,6 +26,7 @@ builder.Services.AddIdentity<User, Role>()
     .AddDefaultTokenProviders();
     
 builder.Services.AddScoped<RoleService>();
+builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 builder.Services.AddScoped<ITagRepository, EfTagRepository>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
