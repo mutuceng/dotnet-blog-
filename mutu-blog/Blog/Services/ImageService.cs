@@ -7,10 +7,17 @@ namespace Blog.Services
 {
     public class ImageService
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ImageService(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         public async Task<string> SaveImage(IFormFile imageFile, string saveDirectory, string seoString)
         {
-            // Sadece belirli dosya uzantılarına izin verelim (güvenlik açısından önemli)
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png"};
+            // Sadece belirli dosya uzantılarına izin verelim
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
             var fileExtension = Path.GetExtension(imageFile.FileName).ToLower();
 
             if (!allowedExtensions.Contains(fileExtension))
@@ -24,25 +31,45 @@ namespace Blog.Services
 
             seoString = seoString.Replace(' ', '-');
 
-            // SEO string uzunluğunu sınırla (örneğin, 100 karakterle)
+            // SEO string uzunluğunu sınırla
             if (seoString.Length > 100)
             {
-                seoString = seoString.Substring(0, 100); // İlk 100 karakteri al
+                seoString = seoString.Substring(0, 100); 
             }
 
             // Eşsiz bir dosya adı oluşturmak için tarih ve benzersiz bir isim ekleyelim
             imageName = $"{seoString}_{imageName}{fileExtension}";
 
-            // Dosyanın kaydedileceği yolu manuel olarak belirtelim
-            var imagePath = Path.Combine(saveDirectory, imageName);
+            // wwwroot dizinine fiziksel yolu ekleyelim
+            string directoryPath = Path.Combine(_webHostEnvironment.WebRootPath, saveDirectory.TrimStart('~', '/'));
 
-            // Dosyayı belirtilen yola kaydedelim
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            // Klasörün var olup olmadığını kontrol et, yoksa oluştur
+            if (!Directory.Exists(directoryPath))
             {
-                await imageFile.CopyToAsync(fileStream);
+                Directory.CreateDirectory(directoryPath);
+                Console.WriteLine($"Directory created: {directoryPath}");
             }
 
-            return imageName; // Dosya adını geri döndürürüz
+            // Dosyanın kaydedileceği yolu manuel olarak belirtelim
+            var imagePath = Path.Combine(directoryPath, imageName);
+            Console.WriteLine("Saving file to: " + imagePath); // Dosya yolunu loglama
+
+
+            // Dosyayı belirtilen yola kaydedelim
+            try
+            {
+                using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(fileStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message); // Hata loglama
+                throw; // Hatanın dışarı fırlatılması
+            }
+
+            return imagePath; // Dosya adını geri döndürürüz
         }
     }
 }

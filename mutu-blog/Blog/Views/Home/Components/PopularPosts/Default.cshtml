@@ -36,8 +36,8 @@
                         </div>
                         <div class="card-body mt-2">
                             <h5 class="card-title">@post.Title</h5>
-                            <p class="carousel card-text short-text">@post.Content.Substring(0, Math.Min(150, post.Content.Length))...</p>
-                            <p class="carousel card-text long-text">@post.Content</p>
+                            <p class="carousel card-text short-text">@Html.Raw(@post.Content.Substring(0, Math.Min(150, post.Content.Length)))...</p>
+                            <p class="carousel card-text long-text">@Html.Raw(@post.Content)</p>
                             <a href="#" class="btn btn-primary">Primary Tag</a>
                         </div>
                     </div>

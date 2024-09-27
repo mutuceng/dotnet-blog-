@@ -69,12 +69,28 @@
       "PackagePath": "staticwebassets\\fonts\\dejavu-serif.book.ttf"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\456c29ec-aac1-4131-98e4-e50b83dfc0d1-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg",
+      "PackagePath": "staticwebassets\\images\\456c29ec-aac1-4131-98e4-e50b83dfc0d1-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\5c664655-6fdc-4ae0-96cc-8b860c2fcc74-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg",
+      "PackagePath": "staticwebassets\\images\\5c664655-6fdc-4ae0-96cc-8b860c2fcc74-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\DSC_6795.jpg",
       "PackagePath": "staticwebassets\\images\\DSC_6795.jpg"
     },
     {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\blank-profile-pic.jpg",
       "PackagePath": "staticwebassets\\images\\blank-profile-pic.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\blog-images\\b08938ff-7e45-464a-ae45-4d792acd2e1b-GKKF636WEAALYeW.jpeg",
+      "PackagePath": "staticwebassets\\images\\blog-images\\b08938ff-7e45-464a-ae45-4d792acd2e1b-GKKF636WEAALYeW.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\blog-images\\f3f4f621-ee11-475f-a0d0-8f572db8647f-GKKF636WEAALYeW.jpeg",
+      "PackagePath": "staticwebassets\\images\\blog-images\\f3f4f621-ee11-475f-a0d0-8f572db8647f-GKKF636WEAALYeW.jpeg"
     },
     {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\Blog\\wwwroot\\images\\drawinsights.gif",

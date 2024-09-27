@@ -8,6 +8,7 @@ using Blog.Data.Abstract;
 using Blog.Data.Concrete.EfCore;
 using Blog.Entity;
 using Blog.Models;
+using Blog.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -18,15 +19,17 @@ namespace Blog.Controllers
     public class BlogsController : Controller
     {
         private readonly BlogContext _context;
+        private readonly ImageService _imageService;
         private IPostRepository _postRepository;
-        private ITagRepository _tagRepository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         
 
-        public BlogsController(BlogContext context, IPostRepository postRepository, ITagRepository tagRepository)
+        public BlogsController(BlogContext context, IPostRepository postRepository, IWebHostEnvironment WebHostEnvironment,ImageService imageService)
         {
             _context = context;
             _postRepository = postRepository;
-            _tagRepository = tagRepository;
+            _webHostEnvironment = WebHostEnvironment;
+            _imageService = imageService;
         }
 
         [Route("")]
@@ -76,30 +79,126 @@ namespace Blog.Controllers
             };
             return View(model);
         }
-
         [HttpPost("Blog/Create")]
-        public IActionResult Create(PostCreateViewModel model)
+        public async Task<IActionResult> CreateAsync(PostCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                if (userId == null)
+                try
                 {
-                    
-                    return RedirectToAction("Login", "Account"); 
+                    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    if (userId == null)
+                    {
+                        return RedirectToAction("Login", "Account");
+                    }
 
+                    List<int> selectedTags = new List<int>();
+                    List<Tag> postTags = new List<Tag>();
+
+                    if (!string.IsNullOrEmpty(model.SelectedTagIdsString))
+                    {
+                        selectedTags = model.SelectedTagIdsString.Split(',')
+                                            .Select(int.Parse).ToList();
+                    }
+
+                    if (selectedTags != null && selectedTags.Any())
+                    {
+                        postTags = _context.Tags.Where(t => selectedTags.Contains(t.TagId)).ToList();
+                    }
+
+if (model.PostImage != null)
+{
+    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+    var fileExtension = Path.GetExtension(model.PostImage.FileName).ToLower();
+
+    if (!allowedExtensions.Contains(fileExtension))
+    {
+        ModelState.AddModelError("PostImage", "Invalid file type. Only JPG, and PNG files are allowed.");
+        model.Tags = GetAvailableTags();
+        return View(model);
+    }
+
+    var fileName = $"{Guid.NewGuid()}-{Path.GetFileName(model.PostImage.FileName)}";
+    var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", fileName);
+    
+    try
+    {
+        using (var fileStream = new FileStream(imagePath, FileMode.Create))
+        {
+            await model.PostImage.CopyToAsync(fileStream);
+        }
+    }
+    catch (Exception ex)
+    {
+        ModelState.AddModelError("", "There was a problem saving the image. Please try again.");
+        model.Tags = GetAvailableTags();
+        return View(model);
+    }
+
+    // Sanal kök dizini belirterek kaydetme
+    var dbImagePath = Path.Combine("~/images", fileName).Replace("\\", "/");  // Windows ortamında ters slash yerine normal slash kullanmak için
+
+    var random = new Random();
+    var postid = random.Next(100000, 1000000);
+
+    var postEntity = new Post
+    {
+        PostId = postid,
+        Title = model.Title,
+        Content = model.Content,
+        UserId = userId,
+        CreatedDate = DateTime.Now,
+        PostImage = dbImagePath,  // Her zaman sanal kökle başlayan formatta kaydediliyor
+        PrimaryTagId = model.PrimaryTagId,
+        IsActive = false,
+        Tags = postTags
+    };
+
+    try
+    {
+        _postRepository.CreatePost(postEntity);
+        await _context.SaveChangesAsync();
+    }
+    catch (Exception ex)
+    {
+        ModelState.AddModelError("", "There was a problem saving the post. Please try again.");
+        model.Tags = GetAvailableTags();
+        return View(model);
+    }
+}
+else
+{
+    ModelState.AddModelError("PostImage", "Image file is required.");
+    model.Tags = GetAvailableTags();
+    return View(model);
+}
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "An unexpected error occurred. Please try again.");
+                    model.Tags = GetAvailableTags();
+                    return View(model);
                 }
 
                 return RedirectToAction("Index");
             }
-
-            model.Tags = GetAvailableTags();  // Hatalı gönderimde etiket listesini yeniden yükleyin
-            return View(model);
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                            .Select(e => e.ErrorMessage)
+                                            .ToList();
+                
+                ViewBag.ErrorMessages = errors;  // Hataları view'e gönderiyoruz
+                
+                model.Tags = GetAvailableTags();
+                return View(model);
+            }
         }
 
-        private List<string> GetAvailableTags()
+        private List<Tag> GetAvailableTags()
         {
-            return _context.Tags.Select(tag => tag.Name).ToList();
+            return _context.Tags.ToList();
         }
 
         [HttpGet("Blog/Details")]

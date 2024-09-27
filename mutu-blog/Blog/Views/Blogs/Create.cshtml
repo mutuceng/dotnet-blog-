@@ -1,52 +1,74 @@
 @model PostCreateViewModel
+@if (ViewBag.ErrorMessages != null && ViewBag.ErrorMessages.Count > 0)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewBag.ErrorMessages)
+            {
+                <li>@error</li>
+            }
+        </ul>
+    </div>
+}
 
 <head>
     <link rel="stylesheet" href="~/css/blogs/blog-create.css" asp-append-version="true" />
 </head>
 <div class="blog-create container">
-    <div class="form-group col-10 mb-2">
-        <label asp-for="Title" class="control-label"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-    
-    <div class="form-group col-10 mb-2">
-        <label asp-for="Content" class="control-label"></label>
-        <textarea asp-for="Content" class="form-control"></textarea>
-        <span asp-validation-for="Content" class="text-danger"></span>
-    </div>
-    
-    <div class="form-group col-5 mb-2">
-        <label asp-for="PostImage" class="control-label"></label>
-        <input asp-for="PostImage" class="form-control" type="file" />
-        <span asp-validation-for="PostImage" class="text-danger"></span>
-    </div>
-    
-    
-    <div class="tag-group mt-4 mb-4">
-        <!-- Birincil Etiket (Primary Tag) -->
-        <div class="form-group col-5">
-            <label asp-for="PrimaryTagName" class="control-label"></label>
-            <select asp-for="PrimaryTagName" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))">
-                <option value="">Bir etiket seçin</option>
-            </select>
-            <span asp-validation-for="PrimaryTagName" class="text-danger"></span>
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-group col-10 mb-2">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         
-        <!-- Etiketler (Tags) -->
-        <div class="form-group col-5">
-            <div id="selectedOptions">
-                
+        <div class="form-group col-10 mb-2">
+            <label asp-for="Content" class="control-label"></label>
+            <textarea asp-for="Content" class="form-control"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group col-5 mb-2">
+            <label asp-for="PostImage" class="control-label"></label>
+            <input asp-for="PostImage" class="form-control" type="file" />
+            <span asp-validation-for="PostImage" class="text-danger"></span>
+        </div>
+        
+        
+        <div class="tag-group mt-4 mb-4">
+            <!-- Birincil Etiket (Primary Tag) -->
+            <div class="form-group col-5">
+                <label asp-for="PrimaryTagId" class="control-label"></label>
+                <select asp-for="PrimaryTagId" class="form-control">
+                    <option value="">Bir etiket seçin</option>
+                    @foreach(var tag in Model.Tags)
+                    {
+                        <option value="@tag.TagId">@tag.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="PrimaryTagId" class="text-danger"></span>
             </div>
             
-            <label asp-for="Tags" class="control-label"></label>
-            <select id="secimler" asp-for="Tags" class="form-control" asp-items="@(new MultiSelectList(Model.Tags))" multiple>
-            </select>
-            <span asp-validation-for="Tags" class="text-danger"></span>
+            <!-- Etiketler (Tags) -->
+            <div class="form-group col-5">
+                <div id="selectedOptions">
+                    
+                </div>
+                
+                <label asp-for="Tags" class="control-label">Seçmek istediğiniz tag'e çift tıklayın.</label>
+                <select id="secimler" class="form-control" multiple>
+                    @foreach(var tag in Model.Tags)
+                    {
+                        <option value="@tag.TagId">@tag.Name</option>
+                    }
+                </select>
+                <input type="hidden" asp-for="SelectedTagIdsString" id="SelectedTags" />
+                <span asp-validation-for="SelectedTagIdsString" class="text-danger"></span>
+            </div>
         </div>
-    </div>
-    
-    <button type="submit" class="publish-btn btn-primary">Yayınla</button>
+        
+        <button type="submit" class="publish-btn btn-primary">Yayınla</button>
+    </form> 
 </div>
 
 @section Scripts
@@ -60,6 +82,7 @@
 
         const selectElement = document.getElementById('secimler');
         const selectedOptionsDiv = document.getElementById('selectedOptions');
+        const hiddenField = document.getElementById('SelectedTags');
         const selectedValues = new Set(); // Aynı öğenin tekrar eklenmesini önlemek için Set kullanıyoruz
 
         // Select kutusundaki değişiklikleri dinle
@@ -80,12 +103,17 @@
                 box.querySelector('.remove-btn').addEventListener('click', function() {
                     selectedValues.delete(selectedOptionValue); // Seçim set'ten kaldırılıyor
                     box.remove(); // Kutu siliniyor
+                    updateHiddenField(); // Seçimler değişince hidden field'ı güncelle
                 });
 
                 // Kutu div'e ekle
                 selectedOptionsDiv.appendChild(box);
             }
+            updateHiddenField();
         });
+        function updateHiddenField() {
+            hiddenField.value = Array.from(selectedValues).join(',');
+        }
     </script>
 }
 

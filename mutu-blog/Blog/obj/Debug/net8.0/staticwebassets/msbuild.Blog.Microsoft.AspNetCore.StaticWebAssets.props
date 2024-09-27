@@ -272,6 +272,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\fonts\dejavu-serif.book.ttf))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\456c29ec-aac1-4131-98e4-e50b83dfc0d1-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blog</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blog</BasePath>
+      <RelativePath>images/456c29ec-aac1-4131-98e4-e50b83dfc0d1-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\456c29ec-aac1-4131-98e4-e50b83dfc0d1-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\5c664655-6fdc-4ae0-96cc-8b860c2fcc74-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blog</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blog</BasePath>
+      <RelativePath>images/5c664655-6fdc-4ae0-96cc-8b860c2fcc74-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\5c664655-6fdc-4ae0-96cc-8b860c2fcc74-gracieabrams_461322141_3954592651489052_5240332212129169485_n.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blank-profile-pic.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Blog</SourceId>
@@ -287,6 +319,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blank-profile-pic.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blog-images\b08938ff-7e45-464a-ae45-4d792acd2e1b-GKKF636WEAALYeW.jpeg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blog</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blog</BasePath>
+      <RelativePath>images/blog-images/b08938ff-7e45-464a-ae45-4d792acd2e1b-GKKF636WEAALYeW.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blog-images\b08938ff-7e45-464a-ae45-4d792acd2e1b-GKKF636WEAALYeW.jpeg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blog-images\f3f4f621-ee11-475f-a0d0-8f572db8647f-GKKF636WEAALYeW.jpeg))">
+      <SourceType>Package</SourceType>
+      <SourceId>Blog</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Blog</BasePath>
+      <RelativePath>images/blog-images/f3f4f621-ee11-475f-a0d0-8f572db8647f-GKKF636WEAALYeW.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\blog-images\f3f4f621-ee11-475f-a0d0-8f572db8647f-GKKF636WEAALYeW.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\drawinsights.gif))">
       <SourceType>Package</SourceType>

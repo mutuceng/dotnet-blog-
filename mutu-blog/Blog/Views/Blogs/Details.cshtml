@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="main-idea">
-                @Model.Blog.Content.Substring(0, Math.Min(120, Model.Blog.Content.Length))
+                @Html.Raw(@Model.Blog.Content.Substring(0, Math.Min(120, Model.Blog.Content.Length)))
             </div>
             <div class="writing">
-                @Model.Blog.Content 
+                @Html.Raw(@Model.Blog.Content) 
                 <p>Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum. Ut mollitia non voluptates aliquam enim. Et minus adipisci consequuntur corporis et rerum velit ea. Animi at id id voluptas harum</p>
             </div>
 

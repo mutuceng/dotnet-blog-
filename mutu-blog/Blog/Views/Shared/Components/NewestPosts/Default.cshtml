@@ -15,7 +15,7 @@
       <div class="col-md-7">
         <div class="card-body">
           <h5 class="card-title">@blog.Title</h5>
-          <p class="card-text ">@blog.Content.Substring(0, Math.Min(80, blog.Content.Length))...</p>
+          <p class="card-text ">@Html.Raw(@blog.Content.Substring(0, Math.Min(80, blog.Content.Length)))...</p>
           <div class="mt-auto">
             <a href="#" class="btn btn-primary">Primary Tag</a>
           </div>
