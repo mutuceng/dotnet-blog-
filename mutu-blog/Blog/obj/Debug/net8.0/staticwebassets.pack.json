@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\blog\\wwwroot\\css\\user\\apply.css",
+      "PackagePath": "staticwebassets\\css\\user\\apply.css"
+    },
+    {
       "Id": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\blog\\wwwroot\\css\\user\\login-register.css",
       "PackagePath": "staticwebassets\\css\\user\\login-register.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+de+ux3PcMNXn3H4QaC34z2ul9tqBNhJPIcbjAx8JMU=",
+  "Hash": "+QYzN/DEZI8m7fTm5nPl1DEzI2r3DXARHUuqSKw46kM=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\blog\\wwwroot\\css\\user\\apply.css",
+      "SourceId": "Blog",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "RelativePath": "css/user/apply.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\user\\apply.css"
     },
     {
       "Identity": "C:\\Users\\Umutl\\Belgeler\\GitHub\\dotnet-blog-\\mutu-blog\\blog\\wwwroot\\css\\user\\login-register.css",

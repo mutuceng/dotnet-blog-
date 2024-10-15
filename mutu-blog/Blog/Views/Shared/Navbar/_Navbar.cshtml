@@ -25,10 +25,11 @@
             @if (User.IsInRole("User"))
             {
                 <div class="search-container" style="width: 120px;">
-                    <a asp-area="" asp-controller="Blogs" asp-action="Create">
+                    <a asp-area="" asp-controller="Users" asp-action="BloggerApply" asp-route-username="@User.Identity.Name">
                         <i class="bi bi-pencil-square"></i>
                         Blogger Ol
                     </a>
+                    
                 </div>
             }
             else if(!User.IsInRole("User"))

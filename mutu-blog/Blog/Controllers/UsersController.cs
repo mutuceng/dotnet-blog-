@@ -101,7 +101,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("User/Register")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -168,6 +168,14 @@ namespace Blog.Controllers
 
             return View(viewModel);
         }
+        
+        [HttpGet("User/{username}/BloggerApply")]
+        public IActionResult BloggerApply()
+        {
+            return View();
+        }
+
+        
 
         [HttpGet("User/Error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

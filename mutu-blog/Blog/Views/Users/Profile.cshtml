@@ -23,7 +23,7 @@
             }           
         </div>
 
-        <div id="blogs" class="content">
+        <div id="blogs" class="content" style="display: none;">
             <!-- Blog içerikleri burada -->
             @if (Model.Blogs != null && Model.Blogs.Any())
             {
@@ -48,6 +48,7 @@
 
             
         </div>
+        
         
         <div id="comments" class="content" style="display: none;">
             <!-- Yorum içerikleri burada -->
@@ -121,6 +122,19 @@
 </div>
 
 <script>
+
+    window.onload = function() {
+        var isNormalUser = '@Model.Blogger.RoleId' === '85512be7-2d8e-46aa-ae95-34a333e836de';
+        
+        if (isNormalUser) {
+            // Hide the "blogs" section and show the "comments" section by default
+            document.getElementById('blogs').style.display = 'none';
+            document.getElementById('comments').style.display = 'block';
+        } else {
+            // No changes for other roles, show "blogs" by default
+            document.getElementById('blogs').style.display = 'block';
+        }
+    };
     function showContent(event, targetId) 
     {
         event.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
