@@ -9,7 +9,7 @@
     margin: auto;
 }
 
-.blog-component, .blog-component .row, .blog-component .row .col-md-4, .blog-component .row .col-md-8, .blog-component .row  .col-md-8 .card-body
+.blog-component .row, .blog-component .row .col-md-4, .blog-component .row .col-md-8, .blog-component .row  .col-md-8 .card-body
 {
     height: 200px;
 }
@@ -21,8 +21,8 @@
 .blog-component img
 {
     max-height: 200px;
-  height: auto;
-  width: auto;
+    height: auto;
+    width: auto;
 }
 
 .blogger-component

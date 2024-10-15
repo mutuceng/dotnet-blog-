@@ -9,115 +9,115 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Blog
 build_property.RootNamespace = Blog
-build_property.ProjectDir = C:\Users\Umutl\Belgeler\GitHub\dotnet-blog-\mutu-blog\Blog\
+build_property.ProjectDir = C:\Users\Umutl\Belgeler\GitHub\dotnet-blog-\mutu-blog\blog\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Umutl\Belgeler\GitHub\dotnet-blog-\mutu-blog\Blog
+build_property.MSBuildProjectDirectory = C:\Users\Umutl\Belgeler\GitHub\dotnet-blog-\mutu-blog\blog
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Admin/Index.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blogs/Create.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Blogs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blogs/Details.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Blogs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Blogs/Index.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Blogs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Components/BestBloggers/Default.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Components/BestBloggers/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXEJlc3RCbG9nZ2Vyc1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Components/PopularPosts/Default.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Components/PopularPosts/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXFBvcHVsYXJQb3N0c1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Components/PopularPosts/Error.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Components/PopularPosts/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXFBvcHVsYXJQb3N0c1xFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Hakkimda.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Hakkimda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIYWtraW1kYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Index.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Home/Privacy.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Profile/Index.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Admin/_LayoutAdmin.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Admin/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Components/NewestPosts/Default.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Components/NewestPosts/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3ZXN0UG9zdHNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Components/TagsMenu/Default.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Components/TagsMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGFnc01lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Error.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Footer/_Footer.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Footer/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZvb3RlclxfRm9vdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Navbar/_Head.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Navbar/_Head.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmJhclxfSGVhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/Navbar/_Navbar.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/Navbar/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmJhclxfTmF2YmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/_LayoutUser.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/_LayoutUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Users/Login.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Users/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Users/Profile.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Users/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Users/Register.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Users/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/_ViewImports.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/_ViewStart.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/Blog/Views/Shared/_Layout.cshtml]
+[C:/Users/Umutl/Belgeler/GitHub/dotnet-blog-/mutu-blog/blog/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9b4f8crvh3

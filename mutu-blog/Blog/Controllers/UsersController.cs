@@ -87,7 +87,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        
+        [HttpGet("User/Logout")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
@@ -101,7 +101,7 @@ namespace Blog.Controllers
             return View();
         }
 
-        [HttpPost("User/Register")]
+        [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

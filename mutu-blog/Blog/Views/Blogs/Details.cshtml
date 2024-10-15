@@ -76,8 +76,12 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <h5 class="mb-3" onclick="OnOff()">Yorum Ekle</h5>
-                        <form action="" method="post">
-                            <input type="hidden" id="" name="" value="">
+                        <div id="message" class="alert d-none" role="alert"></div>
+
+                        <form id="commentForm" action="AddComment" method="post">
+                            <input type="hidden" name="PostId" value="@Model.Blog.PostId" />
+                            
+
                             <div class="mb-3">
                                 <label for="Text" class="form-label">Yorum</label>
                                 <textarea type="text" name="Text" id="Text" rows="3" class="form-control"></textarea>
@@ -115,3 +119,5 @@
         }
 }
 </script>
+
+

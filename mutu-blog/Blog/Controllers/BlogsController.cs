@@ -9,6 +9,7 @@ using Blog.Data.Concrete.EfCore;
 using Blog.Entity;
 using Blog.Models;
 using Blog.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -20,12 +21,14 @@ namespace Blog.Controllers
     {
         private readonly BlogContext _context;
         private readonly ImageService _imageService;
+        private readonly UserManager<User> _userManager;
         private IPostRepository _postRepository;
         private readonly IWebHostEnvironment _webHostEnvironment;
         
 
-        public BlogsController(BlogContext context, IPostRepository postRepository, IWebHostEnvironment WebHostEnvironment,ImageService imageService)
+        public BlogsController(UserManager<User> userManager, BlogContext context, IPostRepository postRepository, IWebHostEnvironment WebHostEnvironment,ImageService imageService)
         {
+            _userManager = userManager;
             _context = context;
             _postRepository = postRepository;
             _webHostEnvironment = WebHostEnvironment;
@@ -106,72 +109,72 @@ namespace Blog.Controllers
                         postTags = _context.Tags.Where(t => selectedTags.Contains(t.TagId)).ToList();
                     }
 
-if (model.PostImage != null)
-{
-    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
-    var fileExtension = Path.GetExtension(model.PostImage.FileName).ToLower();
+                    if (model.PostImage != null)
+                    {
+                        var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                        var fileExtension = Path.GetExtension(model.PostImage.FileName).ToLower();
 
-    if (!allowedExtensions.Contains(fileExtension))
-    {
-        ModelState.AddModelError("PostImage", "Invalid file type. Only JPG, and PNG files are allowed.");
-        model.Tags = GetAvailableTags();
-        return View(model);
-    }
+                        if (!allowedExtensions.Contains(fileExtension))
+                        {
+                            ModelState.AddModelError("PostImage", "Invalid file type. Only JPG, and PNG files are allowed.");
+                            model.Tags = GetAvailableTags();
+                            return View(model);
+                        }
 
-    var fileName = $"{Guid.NewGuid()}-{Path.GetFileName(model.PostImage.FileName)}";
-    var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", fileName);
-    
-    try
-    {
-        using (var fileStream = new FileStream(imagePath, FileMode.Create))
-        {
-            await model.PostImage.CopyToAsync(fileStream);
-        }
-    }
-    catch (Exception ex)
-    {
-        ModelState.AddModelError("", "There was a problem saving the image. Please try again.");
-        model.Tags = GetAvailableTags();
-        return View(model);
-    }
+                        var fileName = $"{Guid.NewGuid()}-{Path.GetFileName(model.PostImage.FileName)}";
+                        var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", fileName);
+                        
+                        try
+                        {
+                            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                            {
+                                await model.PostImage.CopyToAsync(fileStream);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            ModelState.AddModelError("", "There was a problem saving the image. Please try again.");
+                            model.Tags = GetAvailableTags();
+                            return View(model);
+                        }
 
-    // Sanal kök dizini belirterek kaydetme
-    var dbImagePath = Path.Combine("~/images", fileName).Replace("\\", "/");  // Windows ortamında ters slash yerine normal slash kullanmak için
+                        // Sanal kök dizini belirterek kaydetme
+                        var dbImagePath = Path.Combine("~/images", fileName).Replace("\\", "/");  // Windows ortamında ters slash yerine normal slash kullanmak için
 
-    var random = new Random();
-    var postid = random.Next(100000, 1000000);
+                        var random = new Random();
+                        var postid = random.Next(100000, 1000000);
 
-    var postEntity = new Post
-    {
-        PostId = postid,
-        Title = model.Title,
-        Content = model.Content,
-        UserId = userId,
-        CreatedDate = DateTime.Now,
-        PostImage = dbImagePath,  // Her zaman sanal kökle başlayan formatta kaydediliyor
-        PrimaryTagId = model.PrimaryTagId,
-        IsActive = false,
-        Tags = postTags
-    };
+                        var postEntity = new Post
+                        {
+                            PostId = postid,
+                            Title = model.Title,
+                            Content = model.Content,
+                            UserId = userId,
+                            CreatedDate = DateTime.Now,
+                            PostImage = dbImagePath,  // Her zaman sanal kökle başlayan formatta kaydediliyor
+                            PrimaryTagId = model.PrimaryTagId,
+                            IsActive = false,
+                            Tags = postTags
+                        };
 
-    try
-    {
-        _postRepository.CreatePost(postEntity);
-        await _context.SaveChangesAsync();
-    }
-    catch (Exception ex)
-    {
-        ModelState.AddModelError("", "There was a problem saving the post. Please try again.");
-        model.Tags = GetAvailableTags();
-        return View(model);
-    }
-}
-else
-{
-    ModelState.AddModelError("PostImage", "Image file is required.");
-    model.Tags = GetAvailableTags();
-    return View(model);
-}
+                        try
+                        {
+                            _postRepository.CreatePost(postEntity);
+                            await _context.SaveChangesAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            ModelState.AddModelError("", "There was a problem saving the post. Please try again.");
+                            model.Tags = GetAvailableTags();
+                            return View(model);
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("PostImage", "Image file is required.");
+                        model.Tags = GetAvailableTags();
+                        return View(model);
+                    }
 
                 }
                 catch (Exception ex)
@@ -224,19 +227,38 @@ else
             return View(viewModel);
         }
         
-        // public IActionResult PostsByTag(int tagId)
-        // {
+        [HttpPost("Blog/AddComment")]
 
+        public async Task<IActionResult> AddComment(int PostId, string Text)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "Users");
+                }
 
-        //     var filteredPosts = 
-        //         from post in _context.Posts
-        //         join postTag in _context.PostTags on post.PostId equals (int)postTag["PostId"]
-        //          where (int)postTag["TagId"] == tagId // Kullanıcının gönderdiği TagID
-        //         select post;
+                var comment = new Comment
+                {
+                    PostId = PostId,
+                    UserId = user.Id,
+                    Text = Text,
+                    CreatedDate = DateTime.Now
+                };
 
+                _context.Comments.Add(comment);
+                await _context.SaveChangesAsync();
+                
+                return RedirectToAction("Details", "Blogs", new { id = PostId });
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the error
+                Console.WriteLine(ex.Message);
+                return View("Error");
+            }
+        }
 
-
-        //     return View(filteredPosts);
-        // }
     }
 }
